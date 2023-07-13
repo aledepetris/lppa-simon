@@ -23,19 +23,19 @@ body {
   }
   
   #red {
-    background-color: red;
+    background-color: darkred;
   }
   
   #green {
-    background-color: green;
+    background-color: darkgreen;
   }
   
   #blue {
-    background-color: blue;
+    background-color: darkblue;
   }
   
   #yellow {
-    background-color: yellow;
+    background-color: goldenrod;
   }
   
   .btn {
