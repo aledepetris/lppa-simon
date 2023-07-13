@@ -89,6 +89,7 @@ var checkAnswer = function (currentLevel) {
         }
     } else {
         showGameOverPopup();
+        new Audio('assets/wrong.mp3').play();
         gameOver = true;
     }
 
@@ -140,15 +141,19 @@ var blinkColor = function (color) {
     switch (color) {
         case 'red':
             btnRed.style.background = "tomato";
+            new Audio('assets/simonSound1.mp3').play();
             break;
         case 'blue':
             btnBlue.style.background = "lightskyblue";
+            new Audio('assets/simonSound2.mp3').play();
             break;
         case 'green':
             btnGreen.style.background = "lightgreen";
+            new Audio('assets/simonSound3.mp3').play();
             break;
         case 'yellow':
             btnYellow.style.background = "yellow";
+            new Audio('assets/simonSound4.mp3').play();
             break;
     };
 
