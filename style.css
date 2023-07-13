@@ -1,54 +1,72 @@
 body {
-    text-align: center;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .row {
-    display: flex;
-    justify-content: center;
-  }
-  
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /*No se porque pero empuja el footer */
+  margin: 0;
+}
+
+main {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin: auto;
+}
+
+header,
+footer {
+  background-color: #662938;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.simonbtn {
+  margin: 25px;
+  display: inline-block;
+  height: 125px;
+  width: 125px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
+
+#red {
+  background-color: darkred;
+}
+
+#green {
+  background-color: darkgreen;
+}
+
+#blue {
+  background-color: darkblue;
+}
+
+#yellow {
+  background-color: goldenrod;
+}
+
+.btn {
+  margin: 5px;
+  padding: 5px 10px;
+  font-size: 10px;
+}
+
+@media screen and (max-width: 600px) {
   .simonbtn {
-    margin: 25px;
-    display: inline-block;
-    height: 125px;
-    width: 125px;
-    border: 10px solid black;
-    border-radius: 20%;
+    height: 100px;
+    width: 100px;
+    margin: 10px;
   }
-  
-  #red {
-    background-color: darkred;
-  }
-  
-  #green {
-    background-color: darkgreen;
-  }
-  
-  #blue {
-    background-color: darkblue;
-  }
-  
-  #yellow {
-    background-color: goldenrod;
-  }
-  
-  .btn {
-    margin: 5px;
-    padding: 5px 10px;
-    font-size: 10px;
-  }
-  
-  @media screen and (max-width: 600px) {
-    .simonbtn {
-      height: 100px;
-      width: 100px;
-      margin: 10px;
-    }
-  }
-  
+}

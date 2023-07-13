@@ -1,8 +1,7 @@
 // Globales
 var gameOver = true;
 var level = 0;
-var secuence = 0;
-var colors = ['red', 'blue', 'green', 'yellow']
+var colors = ['red', 'blue', 'green', 'yellow'];
 var gameSecuence = [];
 var playerSecuence = [];
 
@@ -12,17 +11,17 @@ var btnYellow = document.getElementById('yellow');
 var btnGreen = document.getElementById('green');
 var btnRed = document.getElementById('red');
 
-var startBtn = document.getElementById('start')
-var resetBtn = document.getElementById('reset')
+var startBtn = document.getElementById('start');
+var resetBtn = document.getElementById('reset');
 resetBtn.disabled = true;
 
 // Spans
 var scoreSpan = document.getElementById('score');
 
 
-// Eventos de los botones Start y Reset 
+// Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
-    // Inicio el juego
+    // Inicio del juego
     gameOver = false;
     scoreSpan.innerText = 0;
 
@@ -30,55 +29,49 @@ startBtn.addEventListener('click', function () {
     startBtn.disabled = true;
     resetBtn.disabled = false;
 
-    // Generar un color y pushear a la secuencia del juego
+    // Generar un color y añadirlo a la secuencia del juego
     var color = generateRandomColor();
     gameSecuence.push(color);
     blinkColor(color);
 
-    console.log(gameSecuence)
+    console.log(gameSecuence);
+});
 
-})
+resetBtn.addEventListener('click', resetGame);
 
-resetBtn.addEventListener('click', function () {
-    resetGame();
-})
 
 // Eventos para los botones de Colores
 btnBlue.addEventListener('click', function () {
-    if (gameOver) return
+    if (gameOver) return;
 
-    playerSecuence.push('blue')
-    blinkColor('blue')
-    checkAnswer(playerSecuence.length - 1)
-
-})
+    playerSecuence.push('blue');
+    blinkColor('blue');
+    checkAnswer(playerSecuence.length - 1);
+});
 
 btnRed.addEventListener('click', function () {
-    if (gameOver) return
+    if (gameOver) return;
 
-    playerSecuence.push('red')
-    blinkColor('red')
-    checkAnswer(playerSecuence.length - 1)
-
-})
+    playerSecuence.push('red');
+    blinkColor('red');
+    checkAnswer(playerSecuence.length - 1);
+});
 
 btnGreen.addEventListener('click', function () {
-    if (gameOver) return
+    if (gameOver) return;
 
-    playerSecuence.push('green')
-    blinkColor('green')
-    checkAnswer(playerSecuence.length - 1)
-
-})
+    playerSecuence.push('green');
+    blinkColor('green');
+    checkAnswer(playerSecuence.length - 1);
+});
 
 btnYellow.addEventListener('click', function () {
-    if (gameOver) return
+    if (gameOver) return;
 
-    playerSecuence.push('yellow')
-    blinkColor('yellow')
-    checkAnswer(playerSecuence.length - 1)
-
-})
+    playerSecuence.push('yellow');
+    blinkColor('yellow');
+    checkAnswer(playerSecuence.length - 1);
+});
 
 
 // Funcion que Chequea las secuencias:
@@ -91,7 +84,6 @@ var checkAnswer = function (currentLevel) {
     } else {
         resetGame();
         gameOver = true;
-        scoreSpan.innerText = "PERDISTE BOBO"
     }
 
 }
@@ -115,8 +107,8 @@ var blinkSecuence = function () {
 
 
 // Funciones generales y Utiles
-
-var resetGame = function () {
+function resetGame() { // Tuve que sacar el var para que no me tire error
+    console.log("Se resetea el juego");
     // Reseteo juego y marcador
     gameOver = true;
     scoreSpan.innerText = 'X';
@@ -125,6 +117,7 @@ var resetGame = function () {
     resetBtn.disabled = true;
     // Limpio las secuencias
     limpiarSecuencias();
+    level = 0;
 }
 
 var generateRandomColor = function () {
@@ -139,16 +132,16 @@ var limpiarSecuencias = function () {
 
 var blinkColor = function (color) {
     switch (color) {
-        case 'red': 
-            btnRed.style.background = "tomato"; 
+        case 'red':
+            btnRed.style.background = "tomato";
             break;
-        case 'blue': 
-            btnBlue.style.background = "lightskyblue"; 
+        case 'blue':
+            btnBlue.style.background = "lightskyblue";
             break;
-        case 'green': 
+        case 'green':
             btnGreen.style.background = "lightgreen";
             break;
-        case 'yellow': 
+        case 'yellow':
             btnYellow.style.background = "yellow";
             break;
     };
