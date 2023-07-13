@@ -1,4 +1,11 @@
+@font-face {
+  font-family: 'Retro Gaming';
+  src: url('assets/Retro\ Gaming.ttf');
+}
+
 body {
+  font-family: 'Retro Gaming', cursive;
+
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -15,7 +22,7 @@ main {
 
 header,
 footer {
-  background-color: #662938;
+  background-color: black;
   padding: 20px;
   color: #fff;
   text-align: center;
@@ -104,21 +111,22 @@ footer {
 }
 
 .btn {
+  font-family: 'Retro Gaming', cursive;
+
   margin: 5px;
   padding: 15px 25px;
   font-size: 1.5em;
   background-color: black;
-  color: #0f0;
+  color: #fff;
   border: none;
   cursor: pointer;
 }
 
 .btn:active {
   border-radius: 50%;
-  background-color: #0f0;
+  background-color: #fff;
   color: black;
 }
-
 
 .scoredisplay {
   display: flex;
@@ -129,6 +137,48 @@ footer {
   width: 50px;
   border-radius: 50%;
   font-size: 2em;
-  background-color:  #0f0;;
+  background-color:  #fff;;
   color: black;
+}
+
+/* POP UP PARA GAME OVER */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.popup-content h2 {
+  margin-bottom: 10px;
+}
+
+/* Mensaje combinacion correcta */
+.message {
+  position: fixed;
+  top: 150px; /* Ajusta la posición vertical según sea necesario */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.message.show {
+  opacity: 1;
 }

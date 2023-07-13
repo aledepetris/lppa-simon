@@ -19,6 +19,11 @@ resetBtn.disabled = true;
 var scoreSpan = document.getElementById('score');
 
 
+// Game Over Controles
+var gameOverPopup = document.getElementById('popup');
+var closeBtn = document.getElementById('closeBtn');
+
+
 // Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
     // Inicio del juego
@@ -79,10 +84,11 @@ var checkAnswer = function (currentLevel) {
 
     if (gameSecuence[currentLevel] == playerSecuence[currentLevel]) {
         if (gameSecuence.length === playerSecuence.length) {
+            showMessageSucces();
             nextSecuence();
         }
     } else {
-        resetGame();
+        showGameOverPopup();
         gameOver = true;
     }
 
@@ -99,9 +105,9 @@ var nextSecuence = function () {
 
 var blinkSecuence = function () {
     gameSecuence.forEach((color, index) => {
-        setTimeout(() => {
+        setTimeout(function () {
             blinkColor(color);
-        }, (index + 1) * 500); // Esperar (index + 1) segundos
+        }, (index + 1) * 750); // Esperar (index + 1) segundos
     });
 };
 
@@ -111,13 +117,13 @@ function resetGame() { // Tuve que sacar el var para que no me tire error
     console.log("Se resetea el juego");
     // Reseteo juego y marcador
     gameOver = true;
-    scoreSpan.innerText = 'X';
+    level = 0;
+    scoreSpan.innerText = level;
     // Disponibilidad de los botones
     startBtn.disabled = false;
     resetBtn.disabled = true;
     // Limpio las secuencias
     limpiarSecuencias();
-    level = 0;
 }
 
 var generateRandomColor = function () {
@@ -146,7 +152,9 @@ var blinkColor = function (color) {
             break;
     };
 
-    setTimeout(() => { clearColor(); }, 200);
+    setTimeout(function() { 
+        clearColor(); 
+    }, 250);
 
 }
 
@@ -156,3 +164,28 @@ var clearColor = function () {
     btnGreen.style.backgroundColor = "darkgreen";
     btnYellow.style.backgroundColor = "goldenrod";
 }
+
+// Game Over
+var showGameOverPopup = function () {
+    gameOverPopup.style.display = 'flex';
+  }
+  
+closeBtn.addEventListener('click', function () {
+    gameOverPopup.style.display = 'none';
+    resetGame();
+  });
+
+// Mensaje secuencia lograda
+function showMessageSucces() {
+    var mensajes = ['BIEN HECHO', 'EXCELENTE', 'ESPECTACULAR', 'GENIAL', 'SIGUE ASI']
+    var random = Math.floor(Math.random() * mensajes.length);
+    console.log(mensajes)
+    console.log(random)
+    var mensaje_final = mensajes[random] + " \u{1F44D}";
+    console.log(mensaje_final)
+    message.textContent = mensaje_final;
+    message.classList.add('show');
+    setTimeout(function () {
+        message.classList.remove('show');
+      }, 1000);
+  }
