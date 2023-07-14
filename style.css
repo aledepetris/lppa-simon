@@ -25,7 +25,7 @@ header,
 footer {
   background-color: black;
   padding: 20px;
-  color: #fff;
+  color: #4dff00;
   text-align: center;
 }
 
@@ -43,7 +43,7 @@ footer {
   border-style: solid;
   margin: auto;
   /* Sombreado */
-  box-shadow: 8px 8px 15px 5px #888888;
+  box-shadow: 8px 8px 15px 5px gray;
 
 }
 
@@ -118,14 +118,14 @@ footer {
   padding: 25px 25px;
   font-size: 1.5em;
   background-color: black;
-  color: #fff;
+  color: white;
   border: none;
   cursor: pointer;
 }
 
 .btn:active {
   border-radius: 50%;
-  background-color: #fff;
+  background-color: white;
   color: black;
 }
 
@@ -138,9 +138,8 @@ footer {
   width: 50px;
   border-radius: 50%;
   font-size: 2em;
-  background-color: #fff;
-  ;
-  color: black;
+  background-color: black;
+  color: #4dff00;
 }
 
 /* POP UP PARA GAME OVER */
@@ -173,7 +172,7 @@ footer {
   /* Ajusta la posición vertical según sea necesario */
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: white;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 18px;
