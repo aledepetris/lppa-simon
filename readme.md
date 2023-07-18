@@ -1,4 +1,9 @@
-# Enunciado
+# SIMON GAME
+## Alumno: Depetris Alejandro.
+## Github Page
+https://aledepetris.github.io/lppa-simon/
+
+## Enunciado
 ## PASOS PARA DESARROLLAR JUEGO SIMON
 
 ### Semana 1
@@ -30,3 +35,7 @@
  2. La secuencia repite estados e incrementa en un nuevo estado/color aleatorio
  3. La secuencia es incremental y se incrementa con el click (Con click)
  4. START - RESET -> ( Habilitar / Deshabilitar )
+
+
+### Criterios Examen Final
+ 1.  

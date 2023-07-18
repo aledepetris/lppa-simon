@@ -1,83 +1,4 @@
-// Globales
-var gameOver = true;
-var level = 0;
-var colors = ['red', 'blue', 'green', 'yellow'];
-var gameSecuence = [];
-var playerSecuence = [];
-
-// Botones
-var btnBlue = document.getElementById('blue');
-var btnYellow = document.getElementById('yellow');
-var btnGreen = document.getElementById('green');
-var btnRed = document.getElementById('red');
-
-var startBtn = document.getElementById('start');
-var resetBtn = document.getElementById('reset');
-resetBtn.disabled = true;
-
-// Spans
-var scoreSpan = document.getElementById('score');
-
-
-// Game Over Controles
-var gameOverPopup = document.getElementById('popup');
-var closeBtn = document.getElementById('closeBtn');
-
-
-// Eventos de los botones Start y Reset
-startBtn.addEventListener('click', function () {
-    // Inicio del juego
-    gameOver = false;
-    scoreSpan.innerText = 0;
-
-    // Disponibilidad de los botones
-    startBtn.disabled = true;
-    resetBtn.disabled = false;
-
-    // Generar un color y añadirlo a la secuencia del juego
-    var color = generateRandomColor();
-    gameSecuence.push(color);
-    blinkColor(color);
-
-    console.log(gameSecuence);
-});
-
-resetBtn.addEventListener('click', resetGame);
-
-
-// Eventos para los botones de Colores
-btnBlue.addEventListener('click', function () {
-    if (gameOver) return;
-
-    playerSecuence.push('blue');
-    blinkColor('blue');
-    checkAnswer(playerSecuence.length - 1);
-});
-
-btnRed.addEventListener('click', function () {
-    if (gameOver) return;
-
-    playerSecuence.push('red');
-    blinkColor('red');
-    checkAnswer(playerSecuence.length - 1);
-});
-
-btnGreen.addEventListener('click', function () {
-    if (gameOver) return;
-
-    playerSecuence.push('green');
-    blinkColor('green');
-    checkAnswer(playerSecuence.length - 1);
-});
-
-btnYellow.addEventListener('click', function () {
-    if (gameOver) return;
-
-    playerSecuence.push('yellow');
-    blinkColor('yellow');
-    checkAnswer(playerSecuence.length - 1);
-});
-
+//------------ FUNCIONES ------------
 
 // Funcion que Chequea las secuencias:
 var checkAnswer = function (currentLevel) {
@@ -112,10 +33,8 @@ var blinkSecuence = function () {
     });
 };
 
-
 // Funciones generales y Utiles
-function resetGame() { // Tuve que sacar el var para que no me tire error
-    console.log("Se resetea el juego");
+var resetGame = function () {
     // Reseteo juego y marcador
     gameOver = true;
     level = 0;
@@ -175,22 +94,98 @@ var showGameOverPopup = function () {
     gameOverPopup.style.display = 'flex';
   }
   
-closeBtn.addEventListener('click', function () {
-    gameOverPopup.style.display = 'none';
-    resetGame();
-  });
-
 // Mensaje secuencia lograda
-function showMessageSucces() {
+var showMessageSucces = function () {
     var mensajes = ['BIEN HECHO', 'EXCELENTE', 'ESPECTACULAR', 'GENIAL', 'SIGUE ASI']
     var random = Math.floor(Math.random() * mensajes.length);
-    console.log(mensajes)
-    console.log(random)
     var mensaje_final = mensajes[random] + " \u{1F44D}";
-    console.log(mensaje_final)
     message.textContent = mensaje_final;
     message.classList.add('show');
     setTimeout(function () {
         message.classList.remove('show');
       }, 1000);
   }
+
+// Globales
+var gameOver = true;
+var level = 0;
+var colors = ['red', 'blue', 'green', 'yellow'];
+var gameSecuence = [];
+var playerSecuence = [];
+
+// Botones
+var btnBlue = document.getElementById('blue');
+var btnYellow = document.getElementById('yellow');
+var btnGreen = document.getElementById('green');
+var btnRed = document.getElementById('red');
+
+var startBtn = document.getElementById('start');
+var resetBtn = document.getElementById('reset');
+resetBtn.disabled = true;
+
+// Spans
+var scoreSpan = document.getElementById('score');
+
+
+// Game Over Controles
+var gameOverPopup = document.getElementById('popup');
+var closeBtn = document.getElementById('closeBtn');
+
+
+// Eventos de los botones Start y Reset
+startBtn.addEventListener('click', function () {
+    // Inicio del juego
+    gameOver = false;
+    scoreSpan.innerText = 0;
+
+    // Disponibilidad de los botones
+    startBtn.disabled = true;
+    resetBtn.disabled = false;
+
+    // Generar un color y añadirlo a la secuencia del juego
+    var color = generateRandomColor();
+    gameSecuence.push(color);
+    blinkColor(color);
+
+    console.log(gameSecuence);
+});
+
+// Eventos para los botones
+btnBlue.addEventListener('click', function () {
+    if (gameOver) return;
+
+    playerSecuence.push('blue');
+    blinkColor('blue');
+    checkAnswer(playerSecuence.length - 1);
+});
+
+btnRed.addEventListener('click', function () {
+    if (gameOver) return;
+
+    playerSecuence.push('red');
+    blinkColor('red');
+    checkAnswer(playerSecuence.length - 1);
+});
+
+btnGreen.addEventListener('click', function () {
+    if (gameOver) return;
+
+    playerSecuence.push('green');
+    blinkColor('green');
+    checkAnswer(playerSecuence.length - 1);
+});
+
+btnYellow.addEventListener('click', function () {
+    if (gameOver) return;
+
+    playerSecuence.push('yellow');
+    blinkColor('yellow');
+    checkAnswer(playerSecuence.length - 1);
+});
+
+closeBtn.addEventListener('click', function () {
+    gameOverPopup.style.display = 'none';
+    resetGame();
+  });
+
+resetBtn.addEventListener('click', resetGame);
