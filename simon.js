@@ -21,7 +21,6 @@ var nextSecuence = function () {
     gameSecuence.push(generateRandomColor())
     level++;
     scoreSpan.innerText = level
-    console.log(gameSecuence)
     blinkSecuence();
 }
 
@@ -43,7 +42,7 @@ var resetGame = function () {
     startBtn.disabled = false;
     resetBtn.disabled = true;
     // Limpio las secuencias
-    limpiarSecuencias();
+    cleanSecuence();
 }
 
 var generateRandomColor = function () {
@@ -51,7 +50,7 @@ var generateRandomColor = function () {
     return colors[num]
 }
 
-var limpiarSecuencias = function () {
+var cleanSecuence = function () {
     gameSecuence = [];
     playerSecuence = [];
 }
@@ -96,10 +95,10 @@ var showGameOverPopup = function () {
   
 // Mensaje secuencia lograda
 var showMessageSucces = function () {
-    var mensajes = ['BIEN HECHO', 'EXCELENTE', 'ESPECTACULAR', 'GENIAL', 'SIGUE ASI']
-    var random = Math.floor(Math.random() * mensajes.length);
-    var mensaje_final = mensajes[random] + " \u{1F44D}";
-    message.textContent = mensaje_final;
+    var msg = ['BIEN HECHO', 'EXCELENTE', 'ESPECTACULAR', 'GENIAL', 'SIGUE ASI']
+    var random = Math.floor(Math.random() * msg.length);
+    var finalMsg = msg[random] + " \u{1F44D}";
+    message.textContent = finalMsg;
     message.classList.add('show');
     setTimeout(function () {
         message.classList.remove('show');
