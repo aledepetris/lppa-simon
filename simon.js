@@ -1,6 +1,7 @@
 // Globales
 var gameOver = true;
 var level = 0;
+var score = 0;
 var colors = ['red', 'blue', 'green', 'yellow'];
 var gameSecuence = [];
 var playerSecuence = [];
@@ -27,6 +28,8 @@ var closeBtn = document.getElementById('closeBtn');
 var checkAnswer = function (currentLevel) {
 
     if (gameSecuence[currentLevel] == playerSecuence[currentLevel]) {
+        score ++;
+        console.log("Score: " + score)
         if (gameSecuence.length === playerSecuence.length) {
             showMessageSucces();
             nextSecuence();
@@ -60,6 +63,8 @@ var resetGame = function () {
     // Reseteo juego y marcador
     gameOver = true;
     level = 0;
+    score = 0;
+    console.log("Score: " + score)
     scoreSpan.innerText = level;
     // Disponibilidad de los botones
     startBtn.disabled = false;
@@ -143,7 +148,6 @@ startBtn.addEventListener('click', function () {
     gameSecuence.push(color);
     blinkColor(color);
 
-    console.log(gameSecuence);
 });
 
 // Eventos para los botones
