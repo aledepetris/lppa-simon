@@ -1,5 +1,28 @@
-//------------ FUNCIONES ------------
+// Globales
+var gameOver = true;
+var level = 0;
+var colors = ['red', 'blue', 'green', 'yellow'];
+var gameSecuence = [];
+var playerSecuence = [];
 
+// Botones
+var btnBlue = document.getElementById('blue');
+var btnYellow = document.getElementById('yellow');
+var btnGreen = document.getElementById('green');
+var btnRed = document.getElementById('red');
+
+var startBtn = document.getElementById('start');
+var resetBtn = document.getElementById('reset');
+resetBtn.disabled = true;
+
+// Spans
+var scoreSpan = document.getElementById('score');
+
+// Game Over Controles
+var gameOverPopup = document.getElementById('popup');
+var closeBtn = document.getElementById('closeBtn');
+
+//------------ FUNCIONES ------------
 // Funcion que Chequea las secuencias:
 var checkAnswer = function (currentLevel) {
 
@@ -104,32 +127,6 @@ var showMessageSucces = function () {
         message.classList.remove('show');
       }, 1000);
   }
-
-// Globales
-var gameOver = true;
-var level = 0;
-var colors = ['red', 'blue', 'green', 'yellow'];
-var gameSecuence = [];
-var playerSecuence = [];
-
-// Botones
-var btnBlue = document.getElementById('blue');
-var btnYellow = document.getElementById('yellow');
-var btnGreen = document.getElementById('green');
-var btnRed = document.getElementById('red');
-
-var startBtn = document.getElementById('start');
-var resetBtn = document.getElementById('reset');
-resetBtn.disabled = true;
-
-// Spans
-var scoreSpan = document.getElementById('score');
-
-
-// Game Over Controles
-var gameOverPopup = document.getElementById('popup');
-var closeBtn = document.getElementById('closeBtn');
-
 
 // Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
