@@ -17,7 +17,7 @@ var resetBtn = document.getElementById('reset');
 resetBtn.disabled = true;
 
 // Spans
-var scoreSpan = document.getElementById('score');
+var levelSpan = document.getElementById('level');
 
 // Game Over Controles
 var gameOverPopup = document.getElementById('popup');
@@ -46,7 +46,8 @@ var nextSecuence = function () {
     playerSecuence = [];
     gameSecuence.push(generateRandomColor())
     level++;
-    scoreSpan.innerText = level
+    console.log(level)
+    levelSpan.innerText = level
     blinkSecuence();
 }
 
@@ -65,7 +66,7 @@ var resetGame = function () {
     level = 0;
     score = 0;
     console.log("Score: " + score)
-    scoreSpan.innerText = level;
+    levelSpan.innerText = level;
     // Disponibilidad de los botones
     startBtn.disabled = false;
     resetBtn.disabled = true;
@@ -137,7 +138,7 @@ var showMessageSucces = function () {
 startBtn.addEventListener('click', function () {
     // Inicio del juego
     gameOver = false;
-    scoreSpan.innerText = 0;
+    levelSpan.innerText = 0;
 
     // Disponibilidad de los botones
     startBtn.disabled = true;
