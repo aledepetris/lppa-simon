@@ -213,6 +213,25 @@ main {
   margin-bottom: 25px;
 }
 
+/* Tabla para el resultado en el game over*/
+.popup-content table {
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+.popup-content table thead {
+  font-size: 12px;
+  font: bold;
+}
+
+.popup-content table tbody {
+  font-size: 11px;
+}
+
+th, td {
+  padding: 5px;
+}
+
 #closeBtn {
   color: #4dff00;
   width: 120px;
