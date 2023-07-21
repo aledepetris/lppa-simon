@@ -5,46 +5,87 @@
 
 body {
   font-family: 'Retro Gaming', cursive;
-
   text-align: center;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;  /* Establece la altura mínima del cuerpo del documento en el 100% de la altura de la ventana gráfica */
-  
   margin: 0;
-}
-
-main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
+  min-height: 100vh; /* Asegura que el body ocupe al menos el 100% del viewport en altura */
 }
 
 header,
 footer {
   background-color: black;
-  padding: 20px;
+  padding: 5px;
   color: #4dff00;
   text-align: center;
+  flex-shrink: 0; /* Evita que el header y footer se reduzcan en altura si el contenido es grande */
+}
+
+h1 {
+  margin: 5px;
+}
+
+nav {
+  background-color: #444;
+  text-align: center;
+  padding: 10px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+main {
+  flex: 1; /* Hace que el main ocupe la pantalla restante */
+  display: flex; /* Agregamos flex para alinear los elementos verticalmente */
+  flex-direction: column; /* Alinear elementos en columna verticalmente */
+  align-items: center;
+  justify-content: center;
+}
+
+.board {
+  margin: 10px;
+}
+
+#name-form {
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+#name {
+  padding: 5px;
+  width: 200px;
+}
+
+#score, #playedtime {
+  font-size: 18px;
+  margin: 0 7.5px 10px;
+}
+
+#simon-game {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Ajustamos el tamaño máximo para evitar que se desborde el contenido */
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .outercircle {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Forma */
   background: black;
   border-radius: 50%;
-  height: 500px;
-  width: 500px;
-  position: absolute; /* Establece la posición del contenedor como absoluta en relación con su contenedor primario */
-  border-width: 10px;
-  border-style: solid;
-  margin: auto;
-  /* Sombreado */
+  width: 300px; /* Ajustamos el tamaño del outercircle en porcentaje */
+  height: 300px;
+  border: 10px solid #444;
   box-shadow: 8px 8px 15px 5px gray;
-
+  box-sizing: border-box;
+  position: relative; /* Importante mantener relative para los elementos hijos */
 }
 
 .innercircle {
@@ -56,15 +97,14 @@ footer {
   justify-content: center;
 
   background: black;
-  height: 250px;
-  width: 250px;
+  height: 150px;
+  width: 150px;
+
+  top: 25%;
 
   border-radius: 50%;
   border-style: solid;
   border-width: 10px;
-
-  top: 25%;
-  left: 25%;
 
   box-sizing: border-box;
 }
@@ -75,10 +115,8 @@ footer {
 }
 
 .simonbtn {
-  height: 250px;
-  width: 250px;
-  top: 50%;
-  left: 50%;
+  height: 140px;
+  width: 140px;
 
   border-style: solid;
   border-width: 5px;
@@ -86,36 +124,34 @@ footer {
   box-sizing: border-box; /* indica que el tamaño total del elemento incluye el contenido, el relleno y el borde, sin afectar al ancho total del elemento. */
 
   cursor: pointer;
-
 }
 
 #red {
   background-color: darkred;
-  border-radius: 0 0 0 250px;
+  border-radius: 0 0 0 150px;
 
 }
 
 #green {
   background-color: darkgreen;
-  border-radius: 0 0 250px 0;
+  border-radius: 0 0 150px 0;
 }
 
 #blue {
   background-color: darkblue;
-  border-radius: 0 250px 0 0;
+  border-radius: 0 150px 0 0;
 }
 
 #yellow {
   background-color: goldenrod;
-  border-radius: 250px 0 0 0;
+  border-radius: 150px 0 0 0;
 }
 
 .btn {
   font-family: 'Retro Gaming', cursive;
   border-radius: 50%;
   margin: 5px;
-  padding: 25px 25px;
-  font-size: 1.5em;
+  font-size: 14px;
   background-color: black;
   color: white;
   border: none;
@@ -141,13 +177,12 @@ footer {
   color: #4dff00;
 }
 
-/* POP UP PARA GAME OVER */
+/* Popup GameOver */
 .popup {
   position: fixed;
   width: 160px;
   height: 120px;
   background-color: rgba(0, 0, 0, 0.5);
-  display: none;
   justify-content: center;
   align-items: center;
 }
@@ -156,6 +191,7 @@ footer {
   background-color: white;
   padding: 20px;
   text-align: center;
+  display: none;
 }
 
 .popup-content h2 {
@@ -164,13 +200,10 @@ footer {
 
 /* Mensaje combinacion correcta */
 .message {
-  position: fixed;
-  top: 135px;
-  /* Ajusta la posición vertical según sea necesario */
-  left: 50%;
-  transform: translateX(-50%);
+  margin-bottom: 10px;
+  height: 15px;
   background-color: white;
-  padding: 10px 20px;
+  padding: 0px 20px 10px;
   border-radius: 5px;
   font-size: 18px;
   text-align: center;
@@ -182,7 +215,7 @@ footer {
   opacity: 1;
 }
 
-
+/*
 @media ((min-width: 375px) and (max-width: 850px)),
        ((min-height: 540px) and (max-height: 820px)) {
 
@@ -285,3 +318,4 @@ footer {
   }
 
 }
+*/

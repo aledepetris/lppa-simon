@@ -11,39 +11,63 @@
 <body>
     <header>
         <h1>SIMON GAME</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
     </header>
+
     <main>
-        <div id="message" class="message"></div>   
-        <div class="outercircle">
+        <div class="board">
+            <div id="message" class="message"></div>
+            <div id="name-form">
+                <input type="text" id="name" placeholder="Ingresa tu nombre">
+                <span id="nameerror" data-name="Error en nombre" class="error"></span>
+            </div>
             <div class="row">
-                <div class="simonbtn" id="yellow"></div>
-                <div class="simonbtn" id="blue"></div>
+                <div id="playedtime">Time: 
+                    <span id="playedtime">0</span>
+                </div>
+                <div id="score">Puntaje: 
+                    <span id="score">0</span>
+                </div>
             </div>
 
-            <div class="row">
-                <div class="simonbtn" id="red"></div>
-                <div class="simonbtn" id="green"></div>
-            </div>
-            <div class="innercircle">
-                <div class="row">
-                    <button id="start" class="btn">Play</button>
-                </div>
-                <div class="row">
-                    <div class="leveldisplay">
-                        <p><span id="level">0</span></p>
+            <div id="simon-game">
+                <div class="outercircle">
+                    <div class="row">
+                        <div class="simonbtn" id="yellow"></div>
+                        <div class="simonbtn" id="blue"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="simonbtn" id="red"></div>
+                        <div class="simonbtn" id="green"></div>
+                    </div>
+                    <div class="innercircle">
+                        <div class="row">
+                            <button id="start" class="btn">Play</button>
+                        </div>
+                        <div class="row">
+                            <div class="leveldisplay">
+                                <p><span id="level">0</span></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button id="reset" class="btn">Reset</button>
+                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <button id="reset" class="btn">Reset</button>
-                </div>
             </div>
         </div>
-        <div id="popup" class="popup">
-            <div class="popup-content">
-              <h2>GAME OVER</h2>
-              <button id="closeBtn" class="btn">Cerrar</button>
-            </div>
+        <!--
+        <div id="popup" class="popup"> </div>
+        <div class="popup-content">
+            <h2>GAME OVER</h2>
+            <button id="closeBtn" class="btn">Cerrar</button>
         </div>
+        -->
     </main>
 
     <footer>
