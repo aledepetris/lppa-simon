@@ -19,6 +19,11 @@ var startBtn = document.getElementById('start');
 var resetBtn = document.getElementById('reset');
 resetBtn.disabled = true;
 
+// Resultados PopUp
+var resultBtn = document.getElementById('resultBtn')
+var closeResultPopupBtn = document.getElementById('close-results')
+var popupResult = document.getElementById("popup-result");
+
 // Spans
 var levelSpan = document.getElementById('level');
 var nameErrorSpan = document.getElementById("nameerror");
@@ -251,6 +256,19 @@ var saveScoreLocalStorage = function (gameScore) {
 
 }
 
+// Eventos para Pop up de Resultados
+resultBtn.addEventListener('click', function() {
+
+    popupResult.style.display = "block";
+
+})
+
+closeResultPopupBtn.addEventListener('click', function() {
+
+    popupResult.style.display = "none";
+    
+} )
+
 // Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
 
@@ -283,7 +301,10 @@ startBtn.addEventListener('click', function () {
 
 });
 
-// Eventos para los botones
+resetBtn.addEventListener('click', resetGame);
+
+
+// Eventos para los botones del simon
 btnBlue.addEventListener('click', function () {
 
     if (gameOver) return;
@@ -330,7 +351,6 @@ closeBtn.addEventListener('click', function () {
 
 });
 
-resetBtn.addEventListener('click', resetGame);
 
 // Validacion del input:
 nameInput.addEventListener("input", function () {
