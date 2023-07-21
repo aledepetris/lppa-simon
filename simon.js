@@ -46,6 +46,7 @@ var checkAnswer = function (currentLevel) {
             nextSecuence();
         }
     } else {
+        saveScoreLocalStorage();
         resetGame();
         showGameOverPopup();
         new Audio('assets/wrong.mp3').play();
@@ -153,10 +154,69 @@ var showMessageSucces = function () {
 
 }
 
+// Actualizar tiempo
 var updateTime = function () {
     time++;
     playedtimeSpan.innerText = time;
+}
 
+// Calculo de resultados
+var calculateResults = function () {
+    
+    var penalization = time / (2*Math.PI);
+    console.log("penalization:" + penalization);
+    var finalScore = Math.floor(score - penalization);
+    console.log("finalScore:" + finalScore);
+    if (finalScore < 0) return 0;
+    return finalScore;
+
+}
+
+// Función para obtener la lista de puntajes del localStorage
+var getScoreFromLocalStorage = function () {
+    var scoreString = localStorage.getItem("puntajes");
+
+    if (!scoreString) {
+        console.log("No existe en local storage los puntajes");
+        return [];
+    }
+
+    return JSON.parse(scoreString);
+}
+
+// Función para obtener la fecha y hora de hoy formateada
+var getDateFormatted = function() {
+    var fecha = new Date();
+  
+    var dia = String(fecha.getDate()).padStart(2, "0");
+    var mes = String(fecha.getMonth() + 1).padStart(2, "0");
+    var anio = fecha.getFullYear();
+  
+    var horas = String(fecha.getHours()).padStart(2, "0");
+    var minutos = String(fecha.getMinutes()).padStart(2, "0");
+    var segundos = String(fecha.getSeconds()).padStart(2, "0");
+  
+    return `${dia}/${mes}/${anio} - ${horas}:${minutos}:${segundos}`;
+  }
+
+// Guardar en localstorage
+var saveScoreLocalStorage = function () {
+    
+    var scoreList = getScoreFromLocalStorage();
+
+    console.log(scoreList)
+    var gameScore = new Map();
+    gameScore.set( "fecha", getDateFormatted() );
+    gameScore.set( "nombre", nameInput.value);
+    gameScore.set( "nivel", level);
+    gameScore.set( "acetados", score);
+    gameScore.set( "tiempo", time);
+    gameScore.set( "puntaje_final", calculateResults());
+
+    scoreList.push(Object.fromEntries(gameScore));
+    console.log(scoreList);
+
+    localStorage.setItem("puntajes", JSON.stringify(scoreList))
 }
     
 // Eventos de los botones Start y Reset
