@@ -46,14 +46,13 @@ var checkAnswer = function (currentLevel) {
             nextSecuence();
         }
     } else {
-        new Audio('assets/wrong.mp3').play();
-        gameOver = true;
-        resetGame();
-
         var gameScore = getGameResults();
         saveScoreLocalStorage(gameScore);
         showGameOverPopup(gameScore);
 
+        new Audio('assets/wrong.mp3').play();
+        gameOver = true;
+        resetGame();
     }
 
 }
@@ -193,9 +192,7 @@ var updateTime = function () {
 var calculateFinalScore = function () {
 
     var penalization = time / (2 * Math.PI);
-    console.log("penalization:" + penalization);
     var finalScore = Math.floor(score - penalization);
-    console.log("finalScore:" + finalScore);
     if (finalScore < 0) return 0;
     return finalScore;
 
@@ -249,12 +246,7 @@ var getDateFormatted = function () {
 var saveScoreLocalStorage = function (gameScore) {
 
     var scoreList = getScoreFromLocalStorage();
-
-    console.log(scoreList)
-
     scoreList.push(Object.fromEntries(gameScore));
-    console.log(scoreList);
-
     localStorage.setItem("puntajes", JSON.stringify(scoreList))
 
 }
