@@ -39,43 +39,53 @@ var closeBtn = document.getElementById('closeBtn');
 var checkAnswer = function (currentLevel) {
 
     if (gameSecuence[currentLevel] == playerSecuence[currentLevel]) {
-        score ++;
+        score++;
         scoreSpan.innerText = score;
         if (gameSecuence.length === playerSecuence.length) {
             showMessageSucces();
             nextSecuence();
         }
     } else {
-        saveScoreLocalStorage();
-        resetGame();
-        showGameOverPopup();
         new Audio('assets/wrong.mp3').play();
         gameOver = true;
+        resetGame();
+
+        var gameScore = getGameResults();
+        saveScoreLocalStorage(gameScore);
+        showGameOverPopup(gameScore);
+
     }
 
 }
 
 var nextSecuence = function () {
+
     playerSecuence = [];
     gameSecuence.push(generateRandomColor())
     level++;
     levelSpan.innerText = level
     blinkSecuence();
+
 }
 
 var blinkSecuence = function () {
+
     gameSecuence.forEach((color, index) => {
         setTimeout(function () {
             blinkColor(color);
         }, (index + 1) * 750); // Esperar (index + 1) segundos
     });
+
 };
 
 // Funciones generales y Utiles
 var resetGame = function () {
-    // Reseteo juego y marcador
+
+    // Reseteo juego y marcadores
     nameInput.disabled = false
     nameInput.value = ""
+    checkIcon.style.display = "none";
+    xIcon.style.display = "inline";
 
     gameOver = true;
     level = 0;
@@ -84,26 +94,33 @@ var resetGame = function () {
     levelSpan.innerText = level;
     scoreSpan.innerText = score;
     playedtimeSpan.innerText = time;
+
     // Disponibilidad de los botones
     startBtn.disabled = false;
     resetBtn.disabled = true;
+
     // Limpio las secuencias
     cleanSecuence();
     clearInterval(intervaloID);
-    
+
 }
 
 var generateRandomColor = function () {
+
     var num = Math.floor(Math.random() * 4);
     return colors[num]
+
 }
 
 var cleanSecuence = function () {
+
     gameSecuence = [];
     playerSecuence = [];
+
 }
 
 var blinkColor = function (color) {
+
     switch (color) {
         case 'red':
             btnRed.style.background = "tomato";
@@ -123,24 +140,34 @@ var blinkColor = function (color) {
             break;
     };
 
-    setTimeout(function() { 
-        clearColor(); 
+    setTimeout(function () {
+        clearColor();
     }, 250);
 
 }
 
 var clearColor = function () {
+
     btnRed.style.backgroundColor = "darkred";
     btnBlue.style.backgroundColor = "darkblue";
     btnGreen.style.backgroundColor = "darkgreen";
     btnYellow.style.backgroundColor = "goldenrod";
+
 }
 
 // Game Over
-var showGameOverPopup = function () {
+var showGameOverPopup = function (gameScore) {
+    var firstRow = document.getElementById('firstrow');
+
+    firstRow.cells[0].textContent = gameScore.get('nivel');
+    firstRow.cells[1].textContent = gameScore.get('acertados');
+    firstRow.cells[2].textContent = gameScore.get('tiempo');
+    firstRow.cells[3].textContent = gameScore.get('puntaje_final');
+
     gameOverPopup.style.display = 'flex';
+
 }
-  
+
 // Mensaje secuencia lograda
 var showMessageSucces = function () {
     var msg = ['BIEN HECHO', 'EXCELENTE', 'ESPECTACULAR', 'GENIAL', 'SIGUE ASI']
@@ -150,20 +177,22 @@ var showMessageSucces = function () {
     message.classList.add('show');
     setTimeout(function () {
         message.classList.remove('show');
-      }, 1000);
+    }, 1000);
 
 }
 
 // Actualizar tiempo
 var updateTime = function () {
+
     time++;
     playedtimeSpan.innerText = time;
+
 }
 
 // Calculo de resultados
-var calculateResults = function () {
-    
-    var penalization = time / (2*Math.PI);
+var calculateFinalScore = function () {
+
+    var penalization = time / (2 * Math.PI);
     console.log("penalization:" + penalization);
     var finalScore = Math.floor(score - penalization);
     console.log("finalScore:" + finalScore);
@@ -172,65 +201,76 @@ var calculateResults = function () {
 
 }
 
+// Creo un map con todos los datos necesarios de la partida
+var getGameResults = function () {
+
+    var gameScore = new Map();
+    gameScore.set("fecha", getDateFormatted());
+    gameScore.set("nombre", nameInput.value);
+    gameScore.set("nivel", level);
+    gameScore.set("acertados", score);
+    gameScore.set("tiempo", time);
+    gameScore.set("puntaje_final", calculateFinalScore());
+    return gameScore;
+
+}
+
 // Función para obtener la lista de puntajes del localStorage
 var getScoreFromLocalStorage = function () {
-    var scoreString = localStorage.getItem("puntajes");
 
+    var scoreString = localStorage.getItem("puntajes");
     if (!scoreString) {
         console.log("No existe en local storage los puntajes");
         return [];
     }
 
     return JSON.parse(scoreString);
+
 }
 
 // Función para obtener la fecha y hora de hoy formateada
-var getDateFormatted = function() {
+var getDateFormatted = function () {
+
     var fecha = new Date();
-  
+
     var dia = String(fecha.getDate()).padStart(2, "0");
     var mes = String(fecha.getMonth() + 1).padStart(2, "0");
     var anio = fecha.getFullYear();
-  
+
     var horas = String(fecha.getHours()).padStart(2, "0");
     var minutos = String(fecha.getMinutes()).padStart(2, "0");
     var segundos = String(fecha.getSeconds()).padStart(2, "0");
-  
+
     return `${dia}/${mes}/${anio} - ${horas}:${minutos}:${segundos}`;
-  }
+    
+}
 
 // Guardar en localstorage
-var saveScoreLocalStorage = function () {
-    
+var saveScoreLocalStorage = function (gameScore) {
+
     var scoreList = getScoreFromLocalStorage();
 
     console.log(scoreList)
-    var gameScore = new Map();
-    gameScore.set( "fecha", getDateFormatted() );
-    gameScore.set( "nombre", nameInput.value);
-    gameScore.set( "nivel", level);
-    gameScore.set( "acetados", score);
-    gameScore.set( "tiempo", time);
-    gameScore.set( "puntaje_final", calculateResults());
 
     scoreList.push(Object.fromEntries(gameScore));
     console.log(scoreList);
 
     localStorage.setItem("puntajes", JSON.stringify(scoreList))
+
 }
-    
+
 // Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
 
     if (nameInput.value.length < 3) {
         nameErrorSpan.style.display = "block"
-      setTimeout(function() {
-        nameErrorSpan.style.display = "none"
-      }, 2000);
+        setTimeout(function () {
+            nameErrorSpan.style.display = "none"
+        }, 2000);
 
-      return
+        return
     }
-    
+
     // Control del Tiempo:
     intervaloID = setInterval(updateTime, 1000);
 
@@ -259,7 +299,7 @@ btnBlue.addEventListener('click', function () {
     playerSecuence.push('blue');
     blinkColor('blue');
     checkAnswer(playerSecuence.length - 1);
-    
+
 });
 
 btnRed.addEventListener('click', function () {
@@ -293,7 +333,7 @@ btnYellow.addEventListener('click', function () {
 });
 
 closeBtn.addEventListener('click', function () {
-    
+
     gameOverPopup.style.display = 'none';
 
 });
@@ -301,16 +341,16 @@ closeBtn.addEventListener('click', function () {
 resetBtn.addEventListener('click', resetGame);
 
 // Validacion del input:
-nameInput.addEventListener("input", function() {
-    
+nameInput.addEventListener("input", function () {
+
     nameInput.value = nameInput.value.toUpperCase();
 
     if (nameInput.value.length < 3) {
-      checkIcon.style.display = "none";
-      xIcon.style.display = "inline";
+        checkIcon.style.display = "none";
+        xIcon.style.display = "inline";
     } else {
-      xIcon.style.display = "none";
-      checkIcon.style.display = "inline";
+        xIcon.style.display = "none";
+        checkIcon.style.display = "inline";
     }
 
 });
