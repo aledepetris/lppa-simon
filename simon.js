@@ -214,9 +214,11 @@ closeBtn.addEventListener('click', function () {
 
 resetBtn.addEventListener('click', resetGame);
 
-// NUEVA PARTE VALIDACION NOMBRE:
-document.getElementById("name").addEventListener("input", function() {
-  
+// Validacion del input:
+nameInput.addEventListener("input", function() {
+    
+    nameInput.value = nameInput.value.toUpperCase();
+
     if (nameInput.value.length < 3) {
       checkIcon.style.display = "none";
       xIcon.style.display = "inline";
