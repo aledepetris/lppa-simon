@@ -5,6 +5,9 @@ var score = 0;
 var colors = ['red', 'blue', 'green', 'yellow'];
 var gameSecuence = [];
 var playerSecuence = [];
+var time = 0;
+var intervaloID;
+
 
 // Botones
 var btnBlue = document.getElementById('blue');
@@ -22,6 +25,7 @@ var nameErrorSpan = document.getElementById("nameerror");
 var scoreSpan = document.getElementById('score')
 var checkIcon = document.getElementById("checkicon");
 var xIcon = document.getElementById("x-icon");
+var playedtimeSpan = document.getElementById('playedtime')
 
 // Input
 var nameInput = document.getElementById("name");
@@ -42,6 +46,7 @@ var checkAnswer = function (currentLevel) {
             nextSecuence();
         }
     } else {
+        resetGame();
         showGameOverPopup();
         new Audio('assets/wrong.mp3').play();
         gameOver = true;
@@ -53,7 +58,6 @@ var nextSecuence = function () {
     playerSecuence = [];
     gameSecuence.push(generateRandomColor())
     level++;
-    console.log(level)
     levelSpan.innerText = level
     blinkSecuence();
 }
@@ -75,13 +79,17 @@ var resetGame = function () {
     gameOver = true;
     level = 0;
     score = 0;
+    time = 0
     levelSpan.innerText = level;
     scoreSpan.innerText = score;
+    playedtimeSpan.innerText = time;
     // Disponibilidad de los botones
     startBtn.disabled = false;
     resetBtn.disabled = true;
     // Limpio las secuencias
     cleanSecuence();
+    clearInterval(intervaloID);
+    
 }
 
 var generateRandomColor = function () {
@@ -130,7 +138,7 @@ var clearColor = function () {
 // Game Over
 var showGameOverPopup = function () {
     gameOverPopup.style.display = 'flex';
-  }
+}
   
 // Mensaje secuencia lograda
 var showMessageSucces = function () {
@@ -142,12 +150,18 @@ var showMessageSucces = function () {
     setTimeout(function () {
         message.classList.remove('show');
       }, 1000);
-  }
 
+}
+
+var updateTime = function () {
+    time++;
+    playedtimeSpan.innerText = time;
+
+}
+    
 // Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
 
-  
     if (nameInput.value.length < 3) {
         nameErrorSpan.style.display = "block"
       setTimeout(function() {
@@ -157,6 +171,9 @@ startBtn.addEventListener('click', function () {
       return
     }
     
+    // Control del Tiempo:
+    intervaloID = setInterval(updateTime, 1000);
+
     // Inicio del juego
     gameOver = false;
     levelSpan.innerText = 0;
@@ -176,41 +193,50 @@ startBtn.addEventListener('click', function () {
 
 // Eventos para los botones
 btnBlue.addEventListener('click', function () {
+
     if (gameOver) return;
 
     playerSecuence.push('blue');
     blinkColor('blue');
     checkAnswer(playerSecuence.length - 1);
+    
 });
 
 btnRed.addEventListener('click', function () {
+
     if (gameOver) return;
 
     playerSecuence.push('red');
     blinkColor('red');
     checkAnswer(playerSecuence.length - 1);
+
 });
 
 btnGreen.addEventListener('click', function () {
+
     if (gameOver) return;
 
     playerSecuence.push('green');
     blinkColor('green');
     checkAnswer(playerSecuence.length - 1);
+
 });
 
 btnYellow.addEventListener('click', function () {
+
     if (gameOver) return;
 
     playerSecuence.push('yellow');
     blinkColor('yellow');
     checkAnswer(playerSecuence.length - 1);
+
 });
 
 closeBtn.addEventListener('click', function () {
+    
     gameOverPopup.style.display = 'none';
-    resetGame();
-  });
+
+});
 
 resetBtn.addEventListener('click', resetGame);
 
@@ -227,4 +253,4 @@ nameInput.addEventListener("input", function() {
       checkIcon.style.display = "inline";
     }
 
-  });
+});
