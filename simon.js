@@ -18,6 +18,13 @@ resetBtn.disabled = true;
 
 // Spans
 var levelSpan = document.getElementById('level');
+var nameErrorSpan = document.getElementById("nameerror");
+var scoreSpan = document.getElementById('score')
+var checkIcon = document.getElementById("checkicon");
+var xIcon = document.getElementById("x-icon");
+
+// Input
+var nameInput = document.getElementById("name");
 
 // Game Over Controles
 var gameOverPopup = document.getElementById('popup');
@@ -29,7 +36,7 @@ var checkAnswer = function (currentLevel) {
 
     if (gameSecuence[currentLevel] == playerSecuence[currentLevel]) {
         score ++;
-        console.log("Score: " + score)
+        scoreSpan.innerText = score;
         if (gameSecuence.length === playerSecuence.length) {
             showMessageSucces();
             nextSecuence();
@@ -62,11 +69,14 @@ var blinkSecuence = function () {
 // Funciones generales y Utiles
 var resetGame = function () {
     // Reseteo juego y marcador
+    nameInput.disabled = false
+    nameInput.value = ""
+
     gameOver = true;
     level = 0;
     score = 0;
-    console.log("Score: " + score)
     levelSpan.innerText = level;
+    scoreSpan.innerText = score;
     // Disponibilidad de los botones
     startBtn.disabled = false;
     resetBtn.disabled = true;
@@ -136,9 +146,22 @@ var showMessageSucces = function () {
 
 // Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
+
+  
+    if (nameInput.value.length < 3) {
+        nameErrorSpan.style.display = "block"
+      setTimeout(function() {
+        nameErrorSpan.style.display = "none"
+      }, 2000);
+
+      return
+    }
+    
     // Inicio del juego
     gameOver = false;
     levelSpan.innerText = 0;
+
+    nameInput.disabled = true
 
     // Disponibilidad de los botones
     startBtn.disabled = true;
@@ -190,3 +213,16 @@ closeBtn.addEventListener('click', function () {
   });
 
 resetBtn.addEventListener('click', resetGame);
+
+// NUEVA PARTE VALIDACION NOMBRE:
+document.getElementById("name").addEventListener("input", function() {
+  
+    if (nameInput.value.length < 3) {
+      checkIcon.style.display = "none";
+      xIcon.style.display = "inline";
+    } else {
+      xIcon.style.display = "none";
+      checkIcon.style.display = "inline";
+    }
+
+  });

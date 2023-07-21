@@ -23,13 +23,16 @@
             <div id="message" class="message"></div>
             <div id="name-form">
                 <input type="text" id="name" placeholder="Ingresa tu nombre">
-                <span id="nameerror" data-name="Error en nombre" class="error"></span>
+                <span id="checkicon" class="icon">&#10004;</span>
+                <span id="x-icon" class="icon">&#10006;</span>
+                <p><span id="nameerror" data-name="Error en nombre" class="error">Debe ingresar un nombre válido</span>
+                </p>
             </div>
             <div class="row">
-                <div id="playedtime">Time: 
+                <div class="results">Time:
                     <span id="playedtime">0</span>
                 </div>
-                <div id="score">Puntaje: 
+                <div class="results">Puntaje:
                     <span id="score">0</span>
                 </div>
             </div>
@@ -61,18 +64,17 @@
                 </div>
             </div>
         </div>
-        <!--
-        <div id="popup" class="popup"> </div>
-        <div class="popup-content">
-            <h2>GAME OVER</h2>
-            <button id="closeBtn" class="btn">Cerrar</button>
-        </div>
-        -->
     </main>
 
     <footer>
         <p>Depetris Alejandro - 2023</p>
     </footer>
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2>GAME OVER</h2>
+            <button id="closeBtn" class="btn">Cerrar</button>
+        </div>
+    </div>
     <script src="simon.js"></script>
 </body>
 

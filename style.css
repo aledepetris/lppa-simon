@@ -9,7 +9,8 @@ body {
   display: flex;
   flex-direction: column;
   margin: 0;
-  min-height: 100vh; /* Asegura que el body ocupe al menos el 100% del viewport en altura */
+  min-height: 100vh;
+  /* Asegura que el body ocupe al menos el 100% del viewport en altura */
 }
 
 header,
@@ -18,7 +19,8 @@ footer {
   padding: 5px;
   color: #4dff00;
   text-align: center;
-  flex-shrink: 0; /* Evita que el header y footer se reduzcan en altura si el contenido es grande */
+  flex-shrink: 0;
+  /* Evita que el header y footer se reduzcan en altura si el contenido es grande */
 }
 
 h1 {
@@ -38,9 +40,12 @@ nav a {
 }
 
 main {
-  flex: 1; /* Hace que el main ocupe la pantalla restante */
-  display: flex; /* Agregamos flex para alinear los elementos verticalmente */
-  flex-direction: column; /* Alinear elementos en columna verticalmente */
+  flex: 1;
+  /* Hace que el main ocupe la pantalla restante */
+  display: flex;
+  /* Agregamos flex para alinear los elementos verticalmente */
+  flex-direction: column;
+  /* Alinear elementos en columna verticalmente */
   align-items: center;
   justify-content: center;
 }
@@ -59,9 +64,9 @@ main {
   width: 200px;
 }
 
-#score, #playedtime {
+.results {
   font-size: 18px;
-  margin: 0 7.5px 10px;
+  margin: 0 20px 10px;
 }
 
 #simon-game {
@@ -80,12 +85,14 @@ main {
   align-items: center;
   background: black;
   border-radius: 50%;
-  width: 300px; /* Ajustamos el tamaño del outercircle en porcentaje */
+  width: 300px;
+  /* Ajustamos el tamaño del outercircle en porcentaje */
   height: 300px;
   border: 10px solid #444;
   box-shadow: 8px 8px 15px 5px gray;
   box-sizing: border-box;
-  position: relative; /* Importante mantener relative para los elementos hijos */
+  position: relative;
+  /* Importante mantener relative para los elementos hijos */
 }
 
 .innercircle {
@@ -121,7 +128,8 @@ main {
   border-style: solid;
   border-width: 5px;
 
-  box-sizing: border-box; /* indica que el tamaño total del elemento incluye el contenido, el relleno y el borde, sin afectar al ancho total del elemento. */
+  box-sizing: border-box;
+  /* indica que el tamaño total del elemento incluye el contenido, el relleno y el borde, sin afectar al ancho total del elemento. */
 
   cursor: pointer;
 }
@@ -180,23 +188,42 @@ main {
 /* Popup GameOver */
 .popup {
   position: fixed;
-  width: 160px;
-  height: 120px;
+  width: 180px;
+  height: 140px;
   background-color: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
+  display: none;
+
+  /* Posicionamiento en el centro de la pantalla */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
 }
 
 .popup-content {
   background-color: white;
   padding: 20px;
   text-align: center;
-  display: none;
+  border: 10px solid black;
 }
 
 .popup-content h2 {
-  margin-bottom: 10px;
+  margin-bottom: 25px;
 }
+
+#closeBtn {
+  color: #4dff00;
+  width: 120px;
+  height: 40px;
+}
+
+#closeBtn:active {
+  color: black;
+  background-color: #4dff00;
+}
+
 
 /* Mensaje combinacion correcta */
 .message {
@@ -213,6 +240,39 @@ main {
 
 .message.show {
   opacity: 1;
+}
+
+#name-form p {
+  margin: 0;
+  height: 18px;
+}
+
+#name {
+  font-family: 'Retro Gaming', cursive;
+  text-align: center;
+}
+
+.icon {
+  display: none;
+  margin-left: 5px;
+}
+
+#x-icon {
+  color: red;
+  display: inline;
+}
+
+#checkicon {
+  color: darkgreen;
+}
+
+.error {
+  font-size: 12px;
+  color: red;
+}
+
+#nameerror {
+  display: none;
 }
 
 /*
