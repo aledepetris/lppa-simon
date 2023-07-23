@@ -128,7 +128,7 @@ main {
   width: 140px;
 
   border-style: solid;
-  border-width: 5px;
+  border-width: 7px;
 
   /* indica que el tamaño total del elemento incluye el contenido, el relleno y el borde, sin afectar al ancho total del elemento. */
   box-sizing: border-box;
@@ -137,23 +137,23 @@ main {
 
 #red {
   background-color: darkred;
-  border-radius: 0 0 0 150px;
+  border-radius: 0 0 0 140px;
 
 }
 
 #green {
   background-color: darkgreen;
-  border-radius: 0 0 150px 0;
+  border-radius: 0 0 140px 0;
 }
 
 #blue {
   background-color: darkblue;
-  border-radius: 0 150px 0 0;
+  border-radius: 0 140px 0 0;
 }
 
 #yellow {
   background-color: goldenrod;
-  border-radius: 150px 0 0 0;
+  border-radius: 140px 0 0 0;
 }
 
 .btn {
