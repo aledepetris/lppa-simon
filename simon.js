@@ -265,12 +265,14 @@ var saveScoreLocalStorage = function (gameScore) {
 
 }
 
-// Eventos para Pop up de Resultados
-resultBtn.addEventListener('click', function () {
 
-    actualPage = 0;
+var fillScoreTable = function () {
+
+    nextpage.style.display = "inline"
+    backpage.style.display = "inline"
+
     var scoresList = getScoreFromLocalStorage();
-    var scoreListToShow = scoresList.slice(0, 7);
+    var scoreListToShow = scoresList.slice( 0 + (7 * actualPage)  , 7 + (7 * actualPage));
 
     // Limpia la tabla eliminando filas anteriores
     bodyTableRow.innerHTML = "";
@@ -283,11 +285,42 @@ resultBtn.addEventListener('click', function () {
         bodyTableRow.appendChild(fila);
     });
 
-    if (scoresList.length > scoreListToShow.length) {
-        nextpage.style.display = "inline";
-    }
+    var numberOfPages = Math.floor(scoresList.length / 7);
+    console.log(numberOfPages);
 
+    if (actualPage == 0) {
+        backpage.style.display = "none";
+    } else if (actualPage == numberOfPages) {
+        nextpage.style.display = "none"
+    }
+}
+
+// Eventos para Pop up de Resultados
+resultBtn.addEventListener('click', function () {
+
+    actualPage = 0;
+    fillScoreTable()
+
+    backpage.style.display = "none"
     popupResult.style.display = "block";
+
+})
+
+nextpage.addEventListener('click', function () {
+
+    backpage.style.display = "inline";
+    actualPage ++;
+
+    fillScoreTable()
+
+})
+
+backpage.addEventListener('click', function () {
+
+    nextpage.style.display = "inline";
+    actualPage --;
+
+    fillScoreTable()
 
 })
 

@@ -275,6 +275,7 @@ main {
 
 .arrow {
   display: none;
+  cursor: pointer;
 }
 
 /* Tabla para el resultado en el game over*/
