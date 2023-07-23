@@ -8,9 +8,11 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
+  min-width: 350px;
+  min-height: 600px;
   margin: 0;
-  min-height: 100vh;
   /* Asegura que el body ocupe al menos el 100% del viewport en altura */
+  min-height: 100vh;
 }
 
 header,

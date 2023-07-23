@@ -30,6 +30,8 @@ var currentpage = document.getElementById('currentpage');
 var headdate = document.getElementById('headdate');
 var headname = document.getElementById('headname');
 var headpoints = document.getElementById('headpoints');
+var orderVariable = "Puntos";
+var orderDirection = "desc";
 
 
 // Spans
@@ -230,7 +232,6 @@ var getScoreFromLocalStorage = function () {
 
     var scoreString = localStorage.getItem("puntajes");
     if (!scoreString) {
-        console.log("No existe en local storage los puntajes");
         return [];
     }
 
@@ -279,6 +280,51 @@ var fillScoreTable = function () {
     currentpage.innerHTML = actualPage + 1
 
     var scoresList = getScoreFromLocalStorage();
+        
+    // Logica de ordenamiento
+    if (orderDirection == "desc") {
+        switch (orderVariable) {
+            case "Fecha": {
+                scoresList.sort(function (a, b) {
+                    return b.fecha.localeCompare(a.fecha);
+                });
+                break;
+            }
+            case "Nombre": {
+                scoresList.sort(function (a, b) {
+                    return b.nombre.localeCompare(a.nombre);
+                });
+                break;
+            }
+            case "Puntos": {
+                scoresList.sort(function (a, b) {
+                    return b.puntaje_final - a.puntaje_final;
+                });
+                break;
+            }
+        }
+    } else {
+        switch (orderVariable) {
+            case "Fecha": {
+                scoresList.sort(function (a, b) {
+                    return a.fecha.localeCompare(b.fecha);
+                });
+                break;
+            }
+            case "Nombre": {
+                scoresList.sort(function (a, b) {
+                    return a.nombre.localeCompare(b.nombre);
+                });
+                break;
+            }
+            case "Puntos": {
+                scoresList.sort(function (a, b) {
+                    return a.puntaje_final - b.puntaje_final;
+                });
+                break;
+            }
+        }
+    }
     var scoreListToShow = scoresList.slice(0 + (6 * actualPage), 6 + (6 * actualPage));
 
     // Limpia la tabla eliminando filas anteriores
@@ -291,21 +337,25 @@ var fillScoreTable = function () {
                           <td>${resultado.puntaje_final}</td>`;
         bodyTableRow.appendChild(fila);
     });
-
-    var numberOfPages = Math.floor(scoresList.length / 6);
-    console.log(numberOfPages);
-
+    
+    var numberOfPages = Math.floor((scoresList.length-1) / 6);   
     if (actualPage == 0) {
         backpage.style.display = "none";
     } else if (actualPage == numberOfPages) {
         nextpage.style.display = "none"
     }
+
 }
+
 
 // Eventos para Pop up de Resultados
 resultBtn.addEventListener('click', function () {
-
     actualPage = 0;
+    resetHeaders();
+    orderDirection = "desc";
+    orderVariable = "Puntos";
+    headpoints.innerText = "Puntos ↑"
+
     fillScoreTable()
 
     backpage.style.display = "none"
@@ -334,6 +384,50 @@ backpage.addEventListener('click', function () {
 closeResultPopupBtn.addEventListener('click', function () {
 
     popupResult.style.display = "none";
+
+})
+
+var resetHeaders = function () {
+    headdate.innerText = "Fecha";
+    headname.innerText = "Nombre";
+    headpoints.innerText = "Puntos";
+}
+
+var fillOrderHeaders = function (header, description) {
+    if (orderVariable == description) {
+        if (orderDirection == "desc") {
+            orderDirection = "asc";
+            header.innerText = description + " ↓";
+        } else {
+            orderVariable = description;
+            orderDirection = "desc";
+            header.innerText = description + " ↑"; 
+        }
+    } else {
+        orderVariable = description;
+        orderDirection = "desc";
+        header.innerText = description + " ↑";
+    }
+}
+
+headdate.addEventListener('click', function () {
+    resetHeaders();
+    fillOrderHeaders(headdate, "Fecha");
+    fillScoreTable()
+        
+})
+
+headname.addEventListener('click', function () {
+    resetHeaders();
+    fillOrderHeaders(headname, "Nombre");
+    fillScoreTable()
+
+})
+
+headpoints.addEventListener('click', function () {
+    resetHeaders();
+    fillOrderHeaders(headpoints, "Puntos");
+    fillScoreTable()
 
 })
 

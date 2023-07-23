@@ -51,6 +51,6 @@ https://aledepetris.github.io/lppa-simon/
 11. &#10004; **Poner un contador de tiempo al iniciar cada partida y utilizar el tiempo transcurrido para restar puntos de las partidas ganadas, es decir que el puntaje final de una partida finalizada, debe ser la cantidad de botones presionados correctamente menos la penalización por el tiempo demorado. Elegir la penalización que prefiera.**;
 12. &#10004; **Guardar los resultados de cada partida del juego usando LocalStorage, recordando el nombre, puntaje, nivel y la fecha y hora de la partida.**
 13. &#10004; **Agregar un botón para mostrar un popup con la lista de partidas con jugadores, puntajes y fechas. En este ranking debe estar ordenado por puntaje.**
-14. Agregar la opción de ordenar el ranking por fecha o puntaje. ↑↓
+14. &#10004; **Agregar la opción de ordenar el ranking por fecha o puntaje. ↑↓**
 
 Hasta el punto 9 es obligatorio para aprobar. Los demás puntos son opcionales y suman a la nota, siendo que si cumplen con todos lospuntos a la perfección tienen un 10.
