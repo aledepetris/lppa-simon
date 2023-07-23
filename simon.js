@@ -7,7 +7,7 @@ var gameSecuence = [];
 var playerSecuence = [];
 var time = 0;
 var intervaloID;
-
+var actualPage;
 
 // Botones
 var btnBlue = document.getElementById('blue');
@@ -23,6 +23,9 @@ resetBtn.disabled = true;
 var resultBtn = document.getElementById('resultBtn')
 var closeResultPopupBtn = document.getElementById('close-results')
 var popupResult = document.getElementById("popup-result");
+var bodyTableRow = document.getElementById('bodyresult');
+var backpage = document.getElementById('backpage');
+var nextpage = document.getElementById('nextpage');
 
 // Spans
 var levelSpan = document.getElementById('level');
@@ -244,7 +247,7 @@ var getDateFormatted = function () {
     var segundos = String(fecha.getSeconds()).padStart(2, "0");
 
     return `${dia}/${mes}/${anio} - ${horas}:${minutos}:${segundos}`;
-    
+
 }
 
 // Guardar en localstorage
@@ -252,22 +255,47 @@ var saveScoreLocalStorage = function (gameScore) {
 
     var scoreList = getScoreFromLocalStorage();
     scoreList.push(Object.fromEntries(gameScore));
+
+    // Ordenar el arreglo de puntajes por el valor de "puntaje_final" de forma descendente
+    scoreList.sort(function (a, b) {
+        return b.puntaje_final - a.puntaje_final;
+    });
+
     localStorage.setItem("puntajes", JSON.stringify(scoreList))
 
 }
 
 // Eventos para Pop up de Resultados
-resultBtn.addEventListener('click', function() {
+resultBtn.addEventListener('click', function () {
+
+    actualPage = 0;
+    var scoresList = getScoreFromLocalStorage();
+    var scoreListToShow = scoresList.slice(0, 7);
+
+    // Limpia la tabla eliminando filas anteriores
+    bodyTableRow.innerHTML = "";
+    // Agrega los resultados a la tabla
+    scoreListToShow.forEach((resultado) => {
+        var fila = document.createElement("tr");
+        fila.innerHTML = `<td>${resultado.fecha}</td>
+                          <td>${resultado.nombre}</td>
+                          <td>${resultado.puntaje_final}</td>`;
+        bodyTableRow.appendChild(fila);
+    });
+
+    if (scoresList.length > scoreListToShow.length) {
+        nextpage.style.display = "inline";
+    }
 
     popupResult.style.display = "block";
 
 })
 
-closeResultPopupBtn.addEventListener('click', function() {
+closeResultPopupBtn.addEventListener('click', function () {
 
     popupResult.style.display = "none";
-    
-} )
+
+})
 
 // Eventos de los botones Start y Reset
 startBtn.addEventListener('click', function () {
