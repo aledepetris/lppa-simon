@@ -365,7 +365,7 @@ th, td {
 
 
 @media (min-width: 800px) and  (min-height: 850px){
-  .board {
+  .board, form {
     transform: scale(1.5);
   }
 }

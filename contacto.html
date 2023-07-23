@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simon Game</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contacto.css">
 </head>
 
 <body>
@@ -20,13 +21,29 @@
     </header>
 
     <main>
-        
+            <form id="contact-form">
+                <h2>Formulario de Contacto</h2>
+
+                <label for="name">Nombre:</label>
+                <input type="text" name="name" id="name">
+                <span id="name-error"  data-name="Error en el Nombre" class="formerror"></span>
+
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                <span id="email-error" data-name="Error en Email" class="formerror"></span>
+
+                <label for="message">Mensaje:</label>
+                <textarea name="message" id="message" rows="5"></textarea>
+                <span id="message-error"  data-name="Error en el Mensaje" class="formerror"></span>
+
+                <button type="submit" value="contactar">Enviar</button>
+            </form>
     </main>
 
     <footer>
         <p>Depetris Alejandro - 2023</p>
     </footer>
-    <script src="simon.js"></script>
+    <script src="contacto.js"></script>
 </body>
 
 </html>

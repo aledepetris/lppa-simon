@@ -1,0 +1,53 @@
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #4dff00;
+    border-radius: 10px;
+    background-color: #000;
+    color: #4dff00;
+  }
+  
+  #contact-form label {
+    margin: 10px 0;
+  }
+  
+  #contact-form input,
+  #contact-form textarea {
+    font-family: 'Retro Gaming', cursive;
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #4dff00;
+    border-radius: 5px;
+    background-color: #000;
+    color: white;
+  }
+  
+  #contact-form textarea {
+    resize: vertical;
+  }
+  
+  #contact-form button {
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4dff00;
+    color: #000;
+    cursor: pointer;
+  }
+  
+  #contact-form button:hover {
+    background-color: #00ff00;
+  }
+
+  .formerror {
+    height: 20px;
+    color: red;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
