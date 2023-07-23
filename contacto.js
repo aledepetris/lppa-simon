@@ -64,10 +64,9 @@ contactForm.addEventListener('submit', function (event) {
         // Preparar el contenido del correo
         var subject = 'LPPA - SIMON GAME';
         var body = `Hola ${nameInput.value} !
-                    \n${messageInput.value}\n`;
+                    \n${messageInput.value}.`;
 
-        var mailToLink = `mailto:${emailInput.value}
-                          ?subject=${encodeURIComponent(subject)}
+        var mailToLink = `mailto:${emailInput.value}?subject=${encodeURIComponent(subject)}
                           &body=${encodeURIComponent(body)}`;
 
         // Abre el cliente de correo predeterminado
