@@ -228,6 +228,8 @@ main {
   border: 5px solid #4dff00;
 
   padding: 25px 5px 5px 5px;
+
+
 }
 
 #close-results {
@@ -239,9 +241,34 @@ main {
 }
 
 #popup-result table {
-  /* Estilos para centrar la tabla dentro del popup */
-  margin: 0 auto;
+  width: 100%; /* Ocupa todo el ancho disponible */
+  border-collapse: collapse; /* Fusiona los bordes de las celdas */
+  font-size: 14px; /* Tamaño de fuente para la tabla */
+
+  /* Espaciado entre celdas */
+  /* Puedes ajustar estos valores para obtener el espaciado deseado */
+  border-spacing: 5px 10px;
 }
+
+#popup-result table th,
+#popup-result table td {
+  padding: 10px; /* Espacio interno de las celdas */
+  text-align: center; /* Alineación del texto en el centro de las celdas */
+  border: 1px solid #4dff00; /* Borde de las celdas */
+}
+
+#pagination {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px; /* Puedes ajustar el espacio entre el contenido del popup y la paginación */
+}
+
+#pagination p {
+  margin: 0;
+}
+
 
 /* Tabla para el resultado en el game over*/
 .popup-content table {
