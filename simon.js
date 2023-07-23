@@ -272,7 +272,7 @@ var fillScoreTable = function () {
     backpage.style.display = "inline"
 
     var scoresList = getScoreFromLocalStorage();
-    var scoreListToShow = scoresList.slice( 0 + (7 * actualPage)  , 7 + (7 * actualPage));
+    var scoreListToShow = scoresList.slice(0 + (7 * actualPage), 7 + (7 * actualPage));
 
     // Limpia la tabla eliminando filas anteriores
     bodyTableRow.innerHTML = "";
@@ -309,7 +309,7 @@ resultBtn.addEventListener('click', function () {
 nextpage.addEventListener('click', function () {
 
     backpage.style.display = "inline";
-    actualPage ++;
+    actualPage++;
 
     fillScoreTable()
 
@@ -318,7 +318,7 @@ nextpage.addEventListener('click', function () {
 backpage.addEventListener('click', function () {
 
     nextpage.style.display = "inline";
-    actualPage --;
+    actualPage--;
 
     fillScoreTable()
 
