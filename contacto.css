@@ -19,6 +19,7 @@
   #contact-form input,
   #contact-form textarea {
     font-family: 'Retro Gaming', cursive;
+    text-align: center;
     width: 100%;
     padding: 8px;
     border: 1px solid #4dff00;
@@ -32,6 +33,7 @@
   }
   
   #contact-form button {
+    font-family: 'Retro Gaming', cursive;
     padding: 10px 20px;
     margin-top: 20px;
     border: none;
@@ -46,8 +48,7 @@
   }
 
   .formerror {
-    height: 20px;
     color: red;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 5px;
   }
