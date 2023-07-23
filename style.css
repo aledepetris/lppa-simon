@@ -91,7 +91,7 @@ main {
   border: 10px solid #444;
   box-shadow: 8px 8px 15px 5px gray;
   box-sizing: border-box;
-    /* Importante mantener relative para los elementos hijos */
+  /* Importante mantener relative para los elementos hijos */
   position: relative;
 }
 
@@ -229,7 +229,6 @@ main {
 
   padding: 25px 5px 5px 5px;
 
-
 }
 
 #close-results {
@@ -240,14 +239,12 @@ main {
   cursor: pointer;
 }
 
+/* Popup de resultados*/
 #popup-result table {
+  margin-top: 12px;
   width: 100%; /* Ocupa todo el ancho disponible */
   border-collapse: collapse; /* Fusiona los bordes de las celdas */
-  font-size: 14px; /* Tamaño de fuente para la tabla */
-
-  /* Espaciado entre celdas */
-  /* Puedes ajustar estos valores para obtener el espaciado deseado */
-  border-spacing: 5px 10px;
+  font-size: 11px; /* Tamaño de fuente para la tabla */
 }
 
 #popup-result table th,
@@ -257,8 +254,12 @@ main {
   border: 1px solid #4dff00; /* Borde de las celdas */
 }
 
+#popup-result table th {
+  cursor: pointer;
+}
+
 #bodyresult {
-  font-size: 9px;
+  font-size: 11px;
 }
 
 #pagination {
@@ -266,7 +267,7 @@ main {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 5px; /* Puedes ajustar el espacio entre el contenido del popup y la paginación */
+  padding: 5px;
 }
 
 #pagination p {

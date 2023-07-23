@@ -71,9 +71,9 @@
             <table>
                 <thead>
                     <tr class="result-header-row">
-                        <th>Fecha</th>
-                        <th>Nombre</th>
-                        <th>Puntaje</th>
+                        <th id="headdate" style="width: 110px;">Fecha</th>
+                        <th id="headname">Nombre</th>
+                        <th id="headpoints">Puntos ↑</th>
                     </tr>
                 </thead>
                 <tbody id="bodyresult">
@@ -82,12 +82,15 @@
             <div id="pagination">
                 <p>
                     <span class="arrow" id="backpage">
-                        <
+                        < 
                     </span>
-                     1 
+                    <span id="currentpage">
+                        1
+                    </span>
                     <span class="arrow" id="nextpage">
                         >
-                    </span></p>
+                    </span>
+                </p>
             </div>
         </div>
     </main>

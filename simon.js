@@ -26,6 +26,11 @@ var popupResult = document.getElementById("popup-result");
 var bodyTableRow = document.getElementById('bodyresult');
 var backpage = document.getElementById('backpage');
 var nextpage = document.getElementById('nextpage');
+var currentpage = document.getElementById('currentpage');
+var headdate = document.getElementById('headdate');
+var headname = document.getElementById('headname');
+var headpoints = document.getElementById('headpoints');
+
 
 // Spans
 var levelSpan = document.getElementById('level');
@@ -271,8 +276,10 @@ var fillScoreTable = function () {
     nextpage.style.display = "inline"
     backpage.style.display = "inline"
 
+    currentpage.innerHTML = actualPage + 1
+
     var scoresList = getScoreFromLocalStorage();
-    var scoreListToShow = scoresList.slice(0 + (7 * actualPage), 7 + (7 * actualPage));
+    var scoreListToShow = scoresList.slice(0 + (6 * actualPage), 6 + (6 * actualPage));
 
     // Limpia la tabla eliminando filas anteriores
     bodyTableRow.innerHTML = "";
@@ -285,7 +292,7 @@ var fillScoreTable = function () {
         bodyTableRow.appendChild(fila);
     });
 
-    var numberOfPages = Math.floor(scoresList.length / 7);
+    var numberOfPages = Math.floor(scoresList.length / 6);
     console.log(numberOfPages);
 
     if (actualPage == 0) {
