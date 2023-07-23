@@ -9,7 +9,7 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 350px;
-  min-height: 600px;
+  min-height: 625px;
   margin: 0;
   /* Asegura que el body ocupe al menos el 100% del viewport en altura */
   min-height: 100vh;
@@ -221,9 +221,9 @@ main {
   width: 300px;
   height: 380px;
 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 52%;
+  left: 49%;
+  transform: translate(-51%, -48%);
 
   color: #4dff00;
   background-color: black;
