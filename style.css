@@ -257,6 +257,10 @@ main {
   border: 1px solid #4dff00; /* Borde de las celdas */
 }
 
+#bodyresult {
+  font-size: 9px;
+}
+
 #pagination {
   position: absolute;
   bottom: 0;
@@ -269,6 +273,9 @@ main {
   margin: 0;
 }
 
+.arrow {
+  display: none;
+}
 
 /* Tabla para el resultado en el game over*/
 .popup-content table {
