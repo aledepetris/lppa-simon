@@ -74,7 +74,7 @@ main {
   }
 
   .menu-toggle {
-    margin-left: 15px ;
+    margin-left: 15px;
     padding-top: 15px;
     display: block;
   }
@@ -83,15 +83,15 @@ main {
     display: none;
     width: 100%;
     text-align: center;
-}
+  }
 
-.topnav a {
+  .topnav a {
     display: block;
     padding: 10px;
-}
+  }
 
   .responsive {
     display: block;
-  } 
+  }
 
 }

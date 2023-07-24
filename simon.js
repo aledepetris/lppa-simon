@@ -280,7 +280,7 @@ var fillScoreTable = function () {
     currentpage.innerHTML = actualPage + 1
 
     var scoresList = getScoreFromLocalStorage();
-        
+
     // Logica de ordenamiento
     if (orderDirection == "desc") {
         switch (orderVariable) {
@@ -337,12 +337,12 @@ var fillScoreTable = function () {
                           <td>${resultado.puntaje_final}</td>`;
         bodyTableRow.appendChild(fila);
     });
-    
-    var numberOfPages = Math.floor((scoresList.length-1) / 6);   
+
+    var numberOfPages = Math.floor((scoresList.length - 1) / 6);
     if (actualPage == 0) {
         backpage.style.display = "none";
-    } 
-    
+    }
+
     if (actualPage == numberOfPages) {
         nextpage.style.display = "none"
     }
@@ -403,7 +403,7 @@ var fillOrderHeaders = function (header, description) {
         } else {
             orderVariable = description;
             orderDirection = "desc";
-            header.innerText = description + " ↑"; 
+            header.innerText = description + " ↑";
         }
     } else {
         orderVariable = description;
@@ -416,7 +416,7 @@ headdate.addEventListener('click', function () {
     resetHeaders();
     fillOrderHeaders(headdate, "Fecha");
     fillScoreTable()
-        
+
 })
 
 headname.addEventListener('click', function () {
