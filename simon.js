@@ -341,7 +341,9 @@ var fillScoreTable = function () {
     var numberOfPages = Math.floor((scoresList.length-1) / 6);   
     if (actualPage == 0) {
         backpage.style.display = "none";
-    } else if (actualPage == numberOfPages) {
+    } 
+    
+    if (actualPage == numberOfPages) {
         nextpage.style.display = "none"
     }
 
