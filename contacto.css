@@ -1,54 +1,59 @@
 #contact-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 60%;
-    margin: 0 auto;
-    padding: 20px;
-    border: 2px solid #4dff00;
-    border-radius: 10px;
-    background-color: #000;
-    color: #4dff00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  padding: 20px;
+  border: 2px solid #4dff00;
+  border-radius: 10px;
+  background-color: #000;
+  color: #4dff00;
 
-  }
-  
-  #contact-form label {
-    margin: 10px 0;
-  }
-  
-  #contact-form input,
-  #contact-form textarea {
-    font-family: 'Retro Gaming', cursive;
-    text-align: center;
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #4dff00;
-    border-radius: 5px;
-    background-color: #000;
-    color: white;
-  }
-  
-  #contact-form textarea {
-    resize: vertical;
-  }
-  
-  #contact-form button {
-    font-family: 'Retro Gaming', cursive;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4dff00;
-    color: #000;
-    cursor: pointer;
-  }
-  
-  #contact-form button:hover {
-    background-color: #00ff00;
-  }
+}
 
-  .formerror {
-    color: red;
-    font-size: 14px;
-    margin-bottom: 5px;
+#contact-form label {
+  margin: 10px 0;
+}
+
+#contact-form input,
+#contact-form textarea {
+  font-family: 'Retro Gaming', cursive;
+  text-align: center;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #4dff00;
+  border-radius: 5px;
+  background-color: #000;
+  color: white;
+}
+
+#contact-form textarea {
+  resize: vertical;
+}
+
+#contact-form button {
+  font-family: 'Retro Gaming', cursive;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4dff00;
+  color: #000;
+  cursor: pointer;
+}
+
+#contact-form button:hover {
+  background-color: #00ff00;
+}
+
+.formerror {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 800px) and (min-height: 850px) {
+  form {
+    transform: scale(1.25);
   }
+}

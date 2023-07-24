@@ -1,0 +1,339 @@
+
+.board {
+    margin: 10px;
+  }
+  
+  #name-form {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  #name {
+    padding: 5px;
+    width: 200px;
+  }
+  
+  .results {
+    font-size: 18px;
+    margin: 0 20px 10px;
+  }
+  
+  #simon-game {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Ajustamos el tamaño máximo para evitar que se desborde el contenido */
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .outercircle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: black;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    border: 10px solid #444;
+    box-shadow: 8px 8px 15px 5px gray;
+    box-sizing: border-box;
+    /* Importante mantener relative para los elementos hijos */
+    position: relative;
+  }
+  
+  .innercircle {
+    position: absolute;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    background: black;
+    height: 150px;
+    width: 150px;
+  
+    top: 25%;
+  
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 10px;
+  
+    box-sizing: border-box;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .simonbtn {
+    height: 140px;
+    width: 140px;
+  
+    border-style: solid;
+    border-width: 7px;
+  
+    /* indica que el tamaño total del elemento incluye el contenido, el relleno y el borde, sin afectar al ancho total del elemento. */
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  
+  #red {
+    background-color: darkred;
+    border-radius: 0 0 0 140px;
+  
+  }
+  
+  #green {
+    background-color: darkgreen;
+    border-radius: 0 0 140px 0;
+  }
+  
+  #blue {
+    background-color: darkblue;
+    border-radius: 0 140px 0 0;
+  }
+  
+  #yellow {
+    background-color: goldenrod;
+    border-radius: 140px 0 0 0;
+  }
+  
+  .btn {
+    font-family: 'Retro Gaming', cursive;
+    border-radius: 50%;
+    margin: 5px;
+    font-size: 14px;
+    background-color: black;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn:active {
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+  }
+  
+  .leveldisplay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 2em;
+    background-color: black;
+    color: #4dff00;
+  }
+  
+  /* Popup GameOver */
+  .popup {
+    position: fixed;
+    width: 180px;
+    height: 140px;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    display: none;
+  
+    /* Posicionamiento en el centro de la pantalla */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  
+  }
+  
+  .popup-content {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    border: 10px solid black;
+  }
+  
+  .popup-content h2 {
+    margin-bottom: 25px;
+  }
+  
+  /* Popup Resultados */
+  #popup-result {
+    display: none;
+    position: fixed;
+    width: 300px;
+    height: 380px;
+  
+    top: 52%;
+    left: 49%;
+    transform: translate(-51%, -48%);
+  
+    color: #4dff00;
+    background-color: black;
+    border: 5px solid #4dff00;
+  
+    padding: 25px 5px 5px 5px;
+  
+  }
+  
+  #close-results {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  /* Popup de resultados*/
+  #popup-result table {
+    margin-top: 12px;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    border-collapse: collapse; /* Fusiona los bordes de las celdas */
+    font-size: 11px; /* Tamaño de fuente para la tabla */
+  }
+  
+  #popup-result table th,
+  #popup-result table td {
+    padding: 10px; /* Espacio interno de las celdas */
+    text-align: center; /* Alineación del texto en el centro de las celdas */
+    border: 1px solid #4dff00; /* Borde de las celdas */
+  }
+  
+  #popup-result table th {
+    cursor: pointer;
+  }
+  
+  #bodyresult {
+    font-size: 11px;
+  }
+  
+  #pagination {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+  }
+  
+  #pagination p {
+    margin: 0;
+  }
+  
+  .arrow {
+    display: none;
+    cursor: pointer;
+  }
+  
+  /* Tabla para el resultado en el game over*/
+  .popup-content table {
+    border-collapse: collapse;
+    margin-bottom: 15px;
+  }
+  
+  .popup-content table thead {
+    font-size: 12px;
+    font: bold;
+  }
+  
+  .popup-content table tbody {
+    font-size: 11px;
+  }
+  
+  th, td {
+    padding: 5px;
+  }
+  
+  #closeBtn {
+    color: #4dff00;
+    width: 120px;
+    height: 40px;
+  }
+  
+  #closeBtn:active {
+    color: black;
+    background-color: #4dff00;
+  }
+  
+  
+  /* Mensaje combinacion correcta */
+  .message {
+    margin-bottom: 10px;
+    height: 15px;
+    background-color: white;
+    padding: 0px 20px 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .message.show {
+    opacity: 1;
+  }
+  
+  #name-form p {
+    margin: 0;
+    height: 18px;
+  }
+  
+  #name {
+    font-family: 'Retro Gaming', cursive;
+    text-align: center;
+  }
+  
+  .icon {
+    display: none;
+    margin-left: 5px;
+  }
+  
+  #x-icon {
+    color: red;
+    display: inline;
+  }
+  
+  #checkicon {
+    color: darkgreen;
+  }
+  
+  .error {
+    font-size: 12px;
+    color: red;
+  }
+  
+  #nameerror {
+    display: none;
+  }
+  
+  
+  
+  @media (min-width: 800px) and  (min-height: 850px){
+    .board {
+      transform: scale(1.5);
+    }
+
+    #popup-result {
+      transform: scale(2);
+      top: 45%;
+      left: 35%;
+    }
+
+  }
+  
+  @media (min-width: 820px) and  (min-height: 1200px){
+    .board {
+      transform: scale(2);
+    }
+
+  }
+  
+  @media (min-width: 1000px) and  (min-height: 1800px){
+    .board {
+      transform: scale(3);
+    }
+
+  }
+  
