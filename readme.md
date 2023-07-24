@@ -40,7 +40,7 @@ https://aledepetris.github.io/lppa-simon/
 ### Enunciado Examen Final
 1. &#10004; **Código prolijo y estricto (HTML5, CSS3 y ES5).**
 2. &#10004; **Consistencia en comentarios, commits y estilos de código.** 
-3. Responsividad y estética del juego y la web (usando Flexbox).
+3. &#10004; **Responsividad y estética del juego y la web (usando Flexbox).**
 4. &#10004; **Juego completamente funcional para un jugador debiendo ingresar nombre del jugador al iniciar la partida, validando como mínimo 3 letras para el nombre.** 
 5. &#10004; **Agregar puntaje por cada luz de color presionada correctamente y mostrar el score.**;
 6. &#10004; **Detectar el momento en que no se presiona la secuencia correcta y mostrar un modal indicando que perdió con un botón para reiniciar la partida.**;
