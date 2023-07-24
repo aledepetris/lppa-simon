@@ -320,6 +320,10 @@
       top: 45%;
       left: 35%;
     }
+    
+    .popup-content {
+      transform: scale(2);
+    }
 
   }
   
