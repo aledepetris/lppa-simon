@@ -21,8 +21,8 @@ footer {
   padding: 5px;
   color: #4dff00;
   text-align: center;
-  flex-shrink: 0;
   /* Evita que el header y footer se reduzcan en altura si el contenido es grande */
+  flex-shrink: 0;
 }
 
 h1 {
@@ -54,7 +54,7 @@ main {
   justify-content: center;
 }
 
-/* Menu Hamburgues */
+/* Menu Hamburguesa */
 .menu-toggle {
   display: none;
 }
