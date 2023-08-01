@@ -8,7 +8,6 @@
   border-radius: 10px;
   background-color: #000;
   color: #4dff00;
-
 }
 
 #contactForm label {
@@ -47,7 +46,7 @@
 }
 
 .formerror {
-  color: red;
+  color: #f00;
   font-size: 14px;
   margin-bottom: 5px;
 }

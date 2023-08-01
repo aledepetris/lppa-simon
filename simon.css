@@ -31,12 +31,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: black;
+  background: #000;
   border-radius: 50%;
   width: 300px;
   height: 300px;
   border: 10px solid #444;
-  box-shadow: 8px 8px 15px 5px gray;
+  box-shadow: 8px 8px 15px 5px #808080;
   box-sizing: border-box;
   /* Importante mantener relative para los elementos hijos */
   position: relative;
@@ -81,23 +81,23 @@
 }
 
 #red {
-  background-color: darkred;
+  background-color: #640000;
   border-radius: 0 0 0 140px;
 
 }
 
 #green {
-  background-color: darkgreen;
+  background-color: #003000;
   border-radius: 0 0 140px 0;
 }
 
 #blue {
-  background-color: darkblue;
+  background-color: #000080;
   border-radius: 0 140px 0 0;
 }
 
 #yellow {
-  background-color: goldenrod;
+  background-color: #daa520;
   border-radius: 140px 0 0 0;
 }
 
@@ -106,16 +106,16 @@
   border-radius: 50%;
   margin: 5px;
   font-size: 14px;
-  background-color: black;
-  color: white;
+  background-color: #000;
+  color: #fff;
   border: none;
   cursor: pointer;
 }
 
 .btn:active {
   border-radius: 50%;
-  background-color: white;
-  color: black;
+  background-color: #fff;
+  color: #000;
 }
 
 .leveldisplay {
@@ -127,7 +127,7 @@
   width: 50px;
   border-radius: 50%;
   font-size: 2em;
-  background-color: black;
+  background-color: #000;
   color: #4dff00;
 }
 
@@ -136,7 +136,7 @@
   position: fixed;
   width: 180px;
   height: 140px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #000;
   justify-content: center;
   align-items: center;
   display: none;
@@ -149,10 +149,10 @@
 }
 
 .popupContent {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
   text-align: center;
-  border: 10px solid black;
+  border: 10px solid #000;
 }
 
 .popupContent h2 {
@@ -171,7 +171,7 @@
   transform: translate(-51%, -48%);
 
   color: #4dff00;
-  background-color: black;
+  background-color: #000;
   border: 5px solid #4dff00;
 
   padding: 25px 5px 5px 5px;
@@ -259,7 +259,7 @@ td {
 }
 
 #closeBtn:active {
-  color: black;
+  color: #000;
   background-color: #4dff00;
 }
 
@@ -268,7 +268,7 @@ td {
 .message {
   margin-bottom: 10px;
   height: 15px;
-  background-color: white;
+  background-color: #fff;
   padding: 0px 20px 10px;
   border-radius: 5px;
   font-size: 18px;
@@ -297,17 +297,17 @@ td {
 }
 
 #xIcon {
-  color: red;
+  color: #f00;
   display: inline;
 }
 
 #checkicon {
-  color: darkgreen;
+  color: #003000;
 }
 
 .error {
   font-size: 12px;
-  color: red;
+  color: #f00;
 }
 
 #nameerror {
