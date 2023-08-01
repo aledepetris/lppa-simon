@@ -1,5 +1,5 @@
 // Formulario
-var contactForm = document.getElementById('contact-form');
+var contactForm = document.getElementById('contactForm');
 var nameInput = document.getElementById('name');
 var emailInput = document.getElementById('email');
 var messageInput = document.getElementById('message');
@@ -7,7 +7,7 @@ var messageInput = document.getElementById('message');
 
 // Funciones para validaciones
 var validateName = function () {
-    var error = document.getElementById("name-error");
+    var error = document.getElementById("nameError");
     var nameRegex = /^[a-zA-Z0-9\s]+$/;
 
     if (nameInput.value.length >= 3 && nameRegex.test(nameInput.value)) {
@@ -35,7 +35,7 @@ var validateEmail = function () {
 }
 
 var validateMsg = function () {
-    var error = document.getElementById("message-error");
+    var error = document.getElementById("messageError");
 
     if (messageInput.value.length >= 5) {
         error.style.display = "none";

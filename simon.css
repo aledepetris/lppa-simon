@@ -2,7 +2,7 @@
   margin: 10px;
 }
 
-#name-form {
+#nameForm {
   display: inline-block;
   margin-bottom: 20px;
 }
@@ -17,7 +17,7 @@
   margin: 0 20px 10px;
 }
 
-#simon-game {
+#simonGame {
   padding: 10px;
   display: flex;
   justify-content: center;
@@ -148,19 +148,19 @@
 
 }
 
-.popup-content {
+.popupContent {
   background-color: white;
   padding: 20px;
   text-align: center;
   border: 10px solid black;
 }
 
-.popup-content h2 {
+.popupContent h2 {
   margin-bottom: 25px;
 }
 
 /* Popup Resultados */
-#popup-result {
+#popupResult {
   display: none;
   position: fixed;
   width: 300px;
@@ -178,7 +178,7 @@
 
 }
 
-#close-results {
+#closeResults {
   position: absolute;
   top: 0px;
   right: 5px;
@@ -187,7 +187,7 @@
 }
 
 /* Popup de resultados*/
-#popup-result table {
+#popupResult table {
   margin-top: 12px;
   width: 100%;
   /* Ocupa todo el ancho disponible */
@@ -197,8 +197,8 @@
   /* Tamaño de fuente para la tabla */
 }
 
-#popup-result table th,
-#popup-result table td {
+#popupResult table th,
+#popupResult table td {
   padding: 10px;
   /* Espacio interno de las celdas */
   text-align: center;
@@ -207,7 +207,7 @@
   /* Borde de las celdas */
 }
 
-#popup-result table th {
+#popupResult table th {
   cursor: pointer;
 }
 
@@ -233,17 +233,17 @@
 }
 
 /* Tabla para el resultado en el game over*/
-.popup-content table {
+.popupContent table {
   border-collapse: collapse;
   margin-bottom: 15px;
 }
 
-.popup-content table thead {
+.popupContent table thead {
   font-size: 12px;
   font: bold;
 }
 
-.popup-content table tbody {
+.popupContent table tbody {
   font-size: 11px;
 }
 
@@ -281,7 +281,7 @@ td {
   opacity: 1;
 }
 
-#name-form p {
+#nameForm p {
   margin: 0;
   height: 18px;
 }
@@ -296,7 +296,7 @@ td {
   margin-left: 5px;
 }
 
-#x-icon {
+#xIcon {
   color: red;
   display: inline;
 }
@@ -321,13 +321,13 @@ td {
     transform: scale(1.5);
   }
 
-  #popup-result {
+  #popupResult {
     transform: scale(2);
     top: 45%;
     left: 35%;
   }
 
-  .popup-content {
+  .popupContent {
     transform: scale(2);
   }
 

@@ -21,8 +21,8 @@ resetBtn.disabled = true;
 
 // Resultados PopUp
 var resultBtn = document.getElementById('resultBtn')
-var closeResultPopupBtn = document.getElementById('close-results')
-var popupResult = document.getElementById("popup-result");
+var closeResultPopupBtn = document.getElementById('closeResults')
+var popupResult = document.getElementById("popupResult");
 var bodyTableRow = document.getElementById('bodyresult');
 var backpage = document.getElementById('backpage');
 var nextpage = document.getElementById('nextpage');
@@ -39,7 +39,7 @@ var levelSpan = document.getElementById('level');
 var nameErrorSpan = document.getElementById("nameerror");
 var scoreSpan = document.getElementById('score')
 var checkIcon = document.getElementById("checkicon");
-var xIcon = document.getElementById("x-icon");
+var xIcon = document.getElementById("xIcon");
 var playedtimeSpan = document.getElementById('playedtime')
 
 // Input

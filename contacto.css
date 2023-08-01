@@ -1,4 +1,4 @@
-#contact-form {
+#contactForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,12 +11,12 @@
 
 }
 
-#contact-form label {
+#contactForm label {
   margin: 10px 0;
 }
 
-#contact-form input,
-#contact-form textarea {
+#contactForm input,
+#contactForm textarea {
   font-family: 'Retro Gaming', cursive;
   text-align: center;
   width: 100%;
@@ -27,11 +27,11 @@
   color: white;
 }
 
-#contact-form textarea {
+#contactForm textarea {
   resize: vertical;
 }
 
-#contact-form button {
+#contactForm button {
   font-family: 'Retro Gaming', cursive;
   padding: 10px 20px;
   margin-top: 20px;
@@ -42,7 +42,7 @@
   cursor: pointer;
 }
 
-#contact-form button:hover {
+#contactForm button:hover {
   background-color: #00ff00;
 }
 

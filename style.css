@@ -55,7 +55,7 @@ main {
 }
 
 /* Menu Hamburguesa */
-.menu-toggle {
+.menuToggle {
   display: none;
 }
 
@@ -73,7 +73,7 @@ main {
     align-items: center;
   }
 
-  .menu-toggle {
+  .menuToggle {
     margin-left: 15px;
     padding-top: 15px;
     display: block;
