@@ -40,7 +40,7 @@ var nameErrorSpan = document.getElementById("nameerror");
 var scoreSpan = document.getElementById('score')
 var checkIcon = document.getElementById("checkicon");
 var xIcon = document.getElementById("xIcon");
-var playedtimeSpan = document.getElementById('playedtime')
+var playedtimeSpan = document.getElementById('playedtime');
 
 // Input
 var nameInput = document.getElementById("name");
@@ -433,16 +433,16 @@ headpoints.addEventListener('click', function () {
 
 })
 
-// Eventos de los botones Start y Reset
+// Eventos para los botones Start y Reset
 startBtn.addEventListener('click', function () {
 
     if (nameInput.value.length < 3) {
-        nameErrorSpan.style.display = "block"
+        nameErrorSpan.style.display = "block";
         setTimeout(function () {
-            nameErrorSpan.style.display = "none"
+            nameErrorSpan.style.display = "none";
         }, 2000);
 
-        return
+        return;
     }
 
     // Control del Tiempo:
@@ -452,7 +452,7 @@ startBtn.addEventListener('click', function () {
     gameOver = false;
     levelSpan.innerText = 0;
 
-    nameInput.disabled = true
+    nameInput.disabled = true;
 
     // Disponibilidad de los botones
     startBtn.disabled = true;

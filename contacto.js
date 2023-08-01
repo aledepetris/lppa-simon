@@ -4,7 +4,6 @@ var nameInput = document.getElementById('name');
 var emailInput = document.getElementById('email');
 var messageInput = document.getElementById('message');
 
-
 // Funciones para validaciones
 var validateName = function () {
     var error = document.getElementById("nameError");
@@ -15,10 +14,10 @@ var validateName = function () {
         return true;
     } else {
         error.style.display = "block";
-        error.textContent = "Minímo 3 caractéres y alfanuméricos..";
+        error.textContent = "Minímo 3 caractéres y alfanuméricos.";
         return false;
-    };
-}
+    }
+};
 
 var validateEmail = function () {
     var error = document.getElementById("email-error");
@@ -28,11 +27,10 @@ var validateEmail = function () {
         return true;
     } else {
         error.style.display = "block";
-        error.textContent = "Formato de email inválido..";
+        error.textContent = "Formato de email inválido.";
         return false;
     }
-
-}
+};
 
 var validateMsg = function () {
     var error = document.getElementById("messageError");
@@ -42,15 +40,16 @@ var validateMsg = function () {
         return true;
     } else {
         error.style.display = "block";
-        error.textContent = "Minímo 5 caractéres..";
+        error.textContent = "Mínimo 5 caractéres.";
         return false;
     }
-}
+};
 
 // Eventos blur sobre el formulario
 nameInput.addEventListener("blur", validateName);
 emailInput.addEventListener("blur", validateEmail);
 messageInput.addEventListener("blur", validateMsg);
+
 // Evento submit
 contactForm.addEventListener('submit', function (event) {
     event.preventDefault();
@@ -60,7 +59,6 @@ contactForm.addEventListener('submit', function (event) {
     var msg = validateMsg();
 
     if (name && email && msg) {
-
         // Preparar el contenido del correo
         var subject = 'LPPA - SIMON GAME';
         var body = `Hola ${nameInput.value} !
@@ -72,5 +70,4 @@ contactForm.addEventListener('submit', function (event) {
         // Abre el cliente de correo predeterminado
         window.location.href = mailToLink;
     }
-
-})
+});
